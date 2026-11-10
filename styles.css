@@ -1,13 +1,13 @@
 /* ==========================================================================
    CUENTA ATRÁS GRANADA 2026 / 2031 — WIDGET 504x336 PX
-   Modo de encaje activo: classic-split (Cruceta X:247px, Y:153px)
+   Modo de encaje activo: quadrants-counter (Cruceta X:247px, Y:153px)
    ========================================================================== */
 
 :root {
     --widget-width: 504px;
     --widget-height: 336px;
-    --pad-x: 10px;
-    --pad-y: 8px;
+    --pad-x: 17px;
+    --pad-y: 16px;
 
     --mullion-x: 247px;
     --mullion-y: 153px;
@@ -24,20 +24,20 @@
     --logo-radius: 24px;
     --logo-mb: 6px;
 
-    --line1-size: 19px;
+    --line1-size: 12px;
     --line1-mb: 4px;
 
-    --number-size: 39px;
-    --unit-size: 26px;
+    --number-size: 54px;
+    --unit-size: 20px;
     --group-gap: 10px;
     --item-gap: 4px;
     --line2-mb: 4px;
     --line3-mb: 8px;
 
-    --line4-size: 16px;
+    --line4-size: 17px;
     --line4-mb: 4px;
 
-    --line5-size: 21px;
+    --line5-size: 23px;
 }
 
 * {
