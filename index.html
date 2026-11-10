@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=440, initial-scale=1.0">
+    <title>Cuenta Atrás Granada 2026</title>
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
+    <!-- Estilos del Widget 440x310 -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Contenedor Principal de dimensiones exactas: 440x310 px -->
+    <main class="countdown-widget" id="widget-root" style="width: 440px; height: 310px; overflow: hidden;">
+        <div class="widget-inner">
+            
+            <!-- Imagen / Logo superior -->
+            <img 
+                id="widget-logo"
+                src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" 
+                alt="Logo Granada 2026" 
+                class="widget-logo"
+            >
+
+            <!-- Línea 1 -->
+            <h1 id="text-line1" class="line-quedan">
+                Quedan
+            </h1>
+
+            <!-- Línea 2: Días, horas, minutos (alineados en baseline) -->
+            <div class="line-dhm" aria-live="polite">
+                
+                <!-- Días -->
+                <div class="time-unit-group">
+                    <div class="number-container" id="days-container">
+                        <span class="hidden-placeholder" id="days-placeholder">00</span>
+                        <div class="number-slide" id="days-current">00</div>
+                    </div>
+                    <span id="label-days">días,</span>
+                </div>
+
+                <!-- Horas -->
+                <div class="time-unit-group">
+                    <div class="number-container" id="hours-container">
+                        <span class="hidden-placeholder" id="hours-placeholder">00</span>
+                        <div class="number-slide" id="hours-current">00</div>
+                    </div>
+                    <span id="label-hours">horas,</span>
+                </div>
+
+                <!-- Minutos -->
+                <div class="time-unit-group">
+                    <div class="number-container" id="minutes-container">
+                        <span class="hidden-placeholder" id="minutes-placeholder">00</span>
+                        <div class="number-slide" id="minutes-current">00</div>
+                    </div>
+                    <span id="label-minutes">minutos</span>
+                </div>
+                
+            </div>
+
+            <!-- Línea 3: Segundos (En una línea nueva y separada) -->
+            <div class="line-seconds">
+                <span id="label-and">y</span>
+                <div class="number-container" id="seconds-container">
+                    <span class="hidden-placeholder" id="seconds-placeholder">00</span>
+                    <div class="number-slide" id="seconds-current">00</div>
+                </div>
+                <span id="label-seconds">segundos</span>
+            </div>
+
+            <!-- Línea 4 -->
+            <p id="text-line4" class="line-subtitle">
+                para saber si Granada será
+            </p>
+
+            <!-- Línea 5 (Destacada y más grande) -->
+            <p id="text-line5" class="line-highlight">
+                Capital Europea de la Cultura
+            </p>
+
+        </div>
+    </main>
+
+    <!-- Lógica del Contador Regresivo -->
+    <script src="script.js"></script>
+</body>
+</html>
