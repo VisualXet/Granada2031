@@ -966,11 +966,11 @@
                             <span>✨ 4 Cristales en Z</span>
                             <small>Logo | Días/H / Min/Seg | Texto</small>
                         </button>
-                        <button class="preset-btn" id="mode-quadrants-counter" onclick="setLayoutMode('quadrants-counter')">
+                        <button class="preset-btn active" id="mode-quadrants-counter" onclick="setLayoutMode('quadrants-counter')">
                             <span>🎯 Contador Inferior</span>
                             <small>Arriba Identidad / Abajo Reloj</small>
                         </button>
-                        <button class="preset-btn active" id="mode-classic-split" onclick="setLayoutMode('classic-split')">
+                        <button class="preset-btn" id="mode-classic-split" onclick="setLayoutMode('classic-split')">
                             <span>↕️ Clásico Dividido</span>
                             <small>Salta nervio V y travesaño H</small>
                         </button>
@@ -1020,7 +1020,7 @@
                     <div class="control-row">
                         <div class="control-label">
                             <span>Escala Proporcional Global</span>
-                            <span class="control-val" id="val-globalScale">114%</span>
+                            <span class="control-val" id="val-globalScale">112%</span>
                         </div>
                         <input type="range" id="ctrl-globalScale" min="70" max="135" step="1" value="100" oninput="applyGlobalScale(this.value)">
                     </div>
@@ -1031,40 +1031,40 @@
                             <input type="range" id="ctrl-logoSize" min="32" max="110" value="68" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>"Quedan"</span><span class="control-val" id="val-line1Size">19px</span></div>
+                            <div class="control-label"><span>"Quedan"</span><span class="control-val" id="val-line1Size">12px</span></div>
                             <input type="range" id="ctrl-line1Size" min="11" max="30" value="17" oninput="syncControls()">
                         </div>
                     </div>
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Números (00)</span><span class="control-val" id="val-numberSize">39px</span></div>
+                            <div class="control-label"><span>Números (00)</span><span class="control-val" id="val-numberSize">54px</span></div>
                             <input type="range" id="ctrl-numberSize" min="22" max="68" value="42" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Unidades</span><span class="control-val" id="val-unitSize">26px</span></div>
+                            <div class="control-label"><span>Unidades</span><span class="control-val" id="val-unitSize">20px</span></div>
                             <input type="range" id="ctrl-unitSize" min="10" max="26" value="15" oninput="syncControls()">
                         </div>
                     </div>
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Subtítulo L4</span><span class="control-val" id="val-line4Size">16px</span></div>
+                            <div class="control-label"><span>Subtítulo L4</span><span class="control-val" id="val-line4Size">17px</span></div>
                             <input type="range" id="ctrl-line4Size" min="10" max="24" value="14" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Titular L5</span><span class="control-val" id="val-line5Size">21px</span></div>
+                            <div class="control-label"><span>Titular L5</span><span class="control-val" id="val-line5Size">23px</span></div>
                             <input type="range" id="ctrl-line5Size" min="12" max="30" value="18" oninput="syncControls()">
                         </div>
                     </div>
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Padding Y</span><span class="control-val" id="val-padY">8px</span></div>
+                            <div class="control-label"><span>Padding Y</span><span class="control-val" id="val-padY">16px</span></div>
                             <input type="range" id="ctrl-padY" min="0" max="28" value="8" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Padding X</span><span class="control-val" id="val-padX">10px</span></div>
+                            <div class="control-label"><span>Padding X</span><span class="control-val" id="val-padX">17px</span></div>
                             <input type="range" id="ctrl-padX" min="0" max="28" value="10" oninput="syncControls()">
                         </div>
                     </div>
@@ -1250,14 +1250,14 @@
                         </div>
                         <pre id="code-styles-css">/* ==========================================================================
    CUENTA ATRÁS GRANADA 2026 / 2031 — WIDGET 504x336 PX
-   Modo de encaje activo: classic-split (Cruceta X:247px, Y:153px)
+   Modo de encaje activo: quadrants-counter (Cruceta X:247px, Y:153px)
    ========================================================================== */
 
 :root {
     --widget-width: 504px;
     --widget-height: 336px;
-    --pad-x: 10px;
-    --pad-y: 8px;
+    --pad-x: 17px;
+    --pad-y: 16px;
 
     --mullion-x: 247px;
     --mullion-y: 153px;
@@ -1274,20 +1274,20 @@
     --logo-radius: 24px;
     --logo-mb: 6px;
 
-    --line1-size: 19px;
+    --line1-size: 12px;
     --line1-mb: 4px;
 
-    --number-size: 39px;
-    --unit-size: 26px;
+    --number-size: 54px;
+    --unit-size: 20px;
     --group-gap: 10px;
     --item-gap: 4px;
     --line2-mb: 4px;
     --line3-mb: 8px;
 
-    --line4-size: 16px;
+    --line4-size: 17px;
     --line4-mb: 4px;
 
-    --line5-size: 21px;
+    --line5-size: 23px;
 }
 
 * {
@@ -1526,10 +1526,14 @@ body {
         &lt;div class="quadrants-grid" id="layout-container" aria-live="polite"&gt;
             &lt;div class="glass-pane pane-tl"&gt;
                 &lt;img id="widget-logo" src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo Granada 2026" class="widget-logo"&gt;
-                &lt;h1 id="text-line1" class="line-quedan"&gt;Quedan&lt;/h1&gt;
             &lt;/div&gt;
             &lt;div class="glass-pane pane-tr"&gt;
-                &lt;div class="pane-row-inline"&gt;
+                &lt;p id="text-line4" class="line-subtitle"&gt;para saber si Granada será&lt;/p&gt;
+                &lt;p id="text-line5" class="line-highlight"&gt;Capital Europea de la Cultura&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="glass-pane pane-bl"&gt;
+                &lt;h1 id="text-line1" class="line-quedan"&gt;Quedan&lt;/h1&gt;
+                &lt;div class="pane-stack"&gt;
                     
                     &lt;div class="time-unit-group" id="block-days"&gt;
                         
@@ -1549,7 +1553,9 @@ body {
                         &lt;span class="unit-label" id="label-hours"&gt;horas,&lt;/span&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
-                &lt;div class="pane-row-inline" style="margin-top:4px;"&gt;
+            &lt;/div&gt;
+            &lt;div class="glass-pane pane-br"&gt;
+                &lt;div class="pane-stack" style="margin-top: 14px;"&gt;
                     
                     &lt;div class="time-unit-group" id="block-minutes"&gt;
                         
@@ -1559,10 +1565,7 @@ body {
                         &lt;/div&gt;
                         &lt;span class="unit-label" id="label-minutes"&gt;minutos&lt;/span&gt;
                     &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="glass-pane pane-bl"&gt;
-                
+                    
                     &lt;div class="time-unit-group" id="block-seconds"&gt;
                         &lt;span class="unit-label"&gt;y&lt;/span&gt;
                         &lt;div class="number-container" id="seconds-container"&gt;
@@ -1571,10 +1574,7 @@ body {
                         &lt;/div&gt;
                         &lt;span class="unit-label" id="label-seconds"&gt;segundos&lt;/span&gt;
                     &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="glass-pane pane-br"&gt;
-                &lt;p id="text-line4" class="line-subtitle"&gt;para saber si Granada será&lt;/p&gt;
-                &lt;p id="text-line5" class="line-highlight"&gt;Capital Europea de la Cultura&lt;/p&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/main&gt;
@@ -1662,7 +1662,7 @@ body {
                             <div class="log-entry log-info">[Sistema] Estudio Anti-Palillería 504×336 inicializado.</div>
                             <div class="log-entry log-info">[Seguridad] Credenciales de VisualXet cargadas desde Navidad2026.</div>
                             <div class="log-entry log-warn">[Modo Manual] Nada se publica sin tu orden. Ajusta el encaje y pulsa Publicar cuando quieras.</div>
-                        <div class="log-entry log-success">[16:29:49] ✅ Archivos guardados con resolución 504x336 y modo classic-split.</div><div class="log-entry log-info">[16:29:56] === INICIANDO PUBLICACIÓN EN VisualXet/Granada2031 ===</div><div class="log-entry log-info">[16:29:56] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[16:29:57] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-success">[16:29:57] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div></div>
+                        <div class="log-entry log-success">[16:29:49] ✅ Archivos guardados con resolución 504x336 y modo classic-split.</div><div class="log-entry log-info">[16:29:56] === INICIANDO PUBLICACIÓN EN VisualXet/Granada2031 ===</div><div class="log-entry log-info">[16:29:56] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[16:29:57] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-success">[16:29:57] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div><div class="log-entry log-info">[16:29:58] Subiendo index.html...</div><div class="log-entry log-success">[16:29:59]   ✔ Archivo publicado: index.html</div><div class="log-entry log-info">[16:29:59] Subiendo styles.css...</div><div class="log-entry log-success">[16:30:01]   ✔ Archivo publicado: styles.css</div><div class="log-entry log-info">[16:30:01] Subiendo script.js...</div><div class="log-entry log-success">[16:30:02]   ✔ Archivo publicado: script.js</div><div class="log-entry log-info">[16:30:02] Subiendo .nojekyll...</div><div class="log-entry log-success">[16:30:04]   ✔ Archivo publicado: .nojekyll</div><div class="log-entry log-info">[16:30:04] Subiendo README.md...</div><div class="log-entry log-success">[16:30:05]   ✔ Archivo publicado: README.md</div><div class="log-entry log-info">[16:30:05] Subiendo gestor.html...</div><div class="log-entry log-success">[16:30:07]   ✔ Archivo publicado: gestor.html</div><div class="log-entry log-info">[16:30:07] Configurando GitHub Pages en la rama main...</div><div class="log-entry log-success">[16:30:07] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div><div class="log-entry log-info">[16:30:07] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[16:30:07] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-success">[16:30:08] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div><div class="log-entry log-success">[16:30:08] 🎉 ¡PUBLICACIÓN COMPLETADA CON ÉXITO!</div><div class="log-entry log-success">[16:36:21] ✅ Archivos guardados con resolución 504x336 y modo quadrants-counter.</div><div class="log-entry log-info">[16:37:20] === INICIANDO PUBLICACIÓN EN VisualXet/Granada2031 ===</div><div class="log-entry log-info">[16:37:20] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[16:37:21] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-success">[16:37:22] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div></div>
                     </div>
                 </div>
             </section>
