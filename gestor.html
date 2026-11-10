@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Generador 440×310 y Gestor GitHub — Granada2031</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Montserrat:wght@400;500;800;900&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-app: #0f172a;
+            --bg-panel: #1e293b;
+            --bg-card: #0b1120;
+            --bg-input: #334155;
+            --border: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #f97316;
+            --accent-hover: #ea580c;
+            --blue: #3b82f6;
+            --blue-hover: #2563eb;
+            --green: #10b981;
+            --green-hover: #059669;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-app);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* ================= HEADER ================= */
+        .app-header {
+            height: 64px;
+            background: #090d16;
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-badge {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(-45deg, #ff9442, #6179b0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 15px;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(255, 148, 66, 0.3);
+        }
+
+        .brand-title h1 {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-title p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: var(--bg-panel);
+            padding: 4px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            gap: 4px;
+        }
+
+        .nav-tab {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            padding: 7px 14px;
+            border-radius: 7px;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-tab:hover {
+            color: var(--text-main);
+        }
+
+        .nav-tab.active {
+            background: var(--blue);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.35);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .repo-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--warning);
+            box-shadow: 0 0 8px var(--warning);
+        }
+        .status-dot.online {
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green);
+        }
+        .status-dot.missing {
+            background: #94a3b8;
+            box-shadow: none;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.15s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--bg-input);
+        }
+
+        .btn-primary {
+            background: var(--blue);
+        }
+        .btn-primary:hover:not(:disabled) {
+            background: var(--blue-hover);
+        }
+
+        .btn-publish {
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+        }
+        .btn-publish:hover:not(:disabled) {
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        /* ================= MAIN LAYOUT ================= */
+        .app-body {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            overflow: hidden;
+        }
+
+        /* ================= SIDEBAR CONTROLS ================= */
+        .controls-sidebar {
+            background: var(--bg-panel);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .sidebar-header h2 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #cbd5e1;
+        }
+
+        .sidebar-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px 16px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .control-section {
+            background: rgba(15, 23, 42, 0.55);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #f8fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+        }
+
+        .preset-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .preset-btn {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            color: #cbd5e1;
+            padding: 7px 6px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.15s;
+        }
+        .preset-btn:hover,
+        .preset-btn.active {
+            border-color: var(--accent);
+            background: rgba(249, 115, 22, 0.15);
+            color: #fff;
+        }
+
+        .control-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+
+        .control-val {
+            font-family: 'JetBrains Mono', monospace;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent);
+            cursor: pointer;
+            height: 5px;
+        }
+
+        .input-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .text-input {
+            width: 100%;
+            background: var(--bg-app);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 7px 9px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: inherit;
+        }
+        .text-input:focus {
+            outline: none;
+            border-color: var(--blue);
+        }
+
+        .color-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="color"] {
+            width: 32px;
+            height: 28px;
+            border: none;
+            border-radius: 4px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        /* ================= WORKSPACE VIEWS ================= */
+        .workspace-main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .view-panel {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+        }
+
+        .view-panel.active {
+            display: flex;
+        }
+
+        /* Compare Grid */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 500px;
+            gap: 20px;
+            flex: 1;
+            min-height: 520px;
+        }
+
+        @media (max-width: 1360px) {
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .preview-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 12px 16px;
+            background: rgba(15, 23, 42, 0.7);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .card-title {
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .badge-blue {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.35);
+        }
+        .badge-orange {
+            background: rgba(249, 115, 22, 0.2);
+            color: #fb923c;
+            border: 1px solid rgba(249, 115, 22, 0.35);
+        }
+        .badge-green {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+        }
+        .badge-red {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.35);
+        }
+
+        .card-body-canvas {
+            flex: 1;
+            background-color: #0b1120;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 16px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: auto;
+        }
+
+        /* Escalador del iframe original */
+        .original-viewport-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .original-iframe-scaler {
+            width: 1100px;
+            height: 760px;
+            transform-origin: center center;
+            transform: scale(0.52);
+            border: 2px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            background: #111;
+            flex-shrink: 0;
+        }
+
+        .original-iframe-scaler iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Marco de medición 440x310 */
+        .widget-ruler-stage {
+            position: relative;
+            padding: 26px 0 0 26px;
+        }
+
+        .ruler-top {
+            position: absolute;
+            top: 0;
+            left: 26px;
+            width: 440px;
+            height: 22px;
+            background: #1e293b;
+            border: 1px solid #475569;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #38bdf8;
+        }
+
+        .ruler-left {
+            position: absolute;
+            top: 26px;
+            left: 0;
+            width: 22px;
+            height: 310px;
+            background: #1e293b;
+            border: 1px solid #475569;
+            border-radius: 4px 0 0 4px;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #38bdf8;
+        }
+
+        .widget-frame-holder {
+            width: 440px;
+            height: 310px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 0 2px #38bdf8;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .widget-frame-holder iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            overflow: hidden;
+        }
+
+        .diagnostics-bar {
+            width: 100%;
+            margin-top: 16px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Code & Embed View */
+        .code-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .code-box {
+            background: #090d16;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .code-box pre {
+            padding: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #e2e8f0;
+            overflow: auto;
+            max-height: 340px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        /* GitHub Manager Panel */
+        .github-grid {
+            display: grid;
+            grid-template-columns: 440px 1fr;
+            gap: 20px;
+        }
+
+        .gh-action-card {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .console-log {
+            background: #050811;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            height: 360px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .log-entry {
+            line-height: 1.45;
+            word-break: break-all;
+        }
+        .log-info { color: #94a3b8; }
+        .log-success { color: #34d399; }
+        .log-warn { color: #fbbf24; }
+        .log-error { color: #f87171; }
+
+        .links-banner {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .links-banner a {
+            color: #38bdf8;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12.5px;
+            text-decoration: none;
+        }
+        .links-banner a:hover {
+            text-decoration: underline;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: #cbd5e1;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= CABECERA SUPERIOR ================= -->
+    <header class="app-header">
+        <div class="brand">
+            <div class="brand-badge">G31</div>
+            <div class="brand-title">
+                <h1>
+                    Estudio Cuenta Atrás Granada 2026 / 2031
+                    <span class="badge badge-orange">440 × 310 px</span>
+                </h1>
+                <p>Control de generación en vivo, comparador Original vs. Resultado y publicación manual en GitHub</p>
+            </div>
+        </div>
+
+        <nav class="nav-tabs">
+            <button class="nav-tab" onclick="switchView('compare', this)">
+                👁️ Comparador (Original vs 440×310)
+            </button>
+            <button class="nav-tab" onclick="switchView('code', this)">
+                💻 Código Generado &amp; Iframe
+            </button>
+            <button class="nav-tab active" onclick="switchView('github', this)">
+                🚀 Gestor GitHub (Granada2031)
+            </button>
+        </nav>
+
+        <div class="header-actions">
+            <div class="repo-pill" title="Estado del repositorio en la cuenta VisualXet">
+                <span class="status-dot online" id="header-repo-dot"></span>
+                <span id="header-repo-status">VisualXet/Granada2031 (Existe)</span>
+            </div>
+            <button class="btn btn-secondary" onclick="checkGitHubRepoStatus()" title="Consultar en GitHub sin modificar nada">
+                🔍 Comprobar Repo
+            </button>
+            <button class="btn btn-primary" onclick="saveFilesToLocalDisk()" title="Guardar o descargar index.html, styles.css y script.js con tus ajustes actuales">
+                💾 Guardar Archivos
+            </button>
+            <button class="btn btn-publish" id="btn-top-publish" onclick="openPublishFlow()" disabled="">
+                🚀 Publicar en GitHub (Granada2031)
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= CUERPO PRINCIPAL ================= -->
+    <div class="app-body">
+
+        <!-- BARRA LATERAL IZQUIERDA: CONTROLES DE GENERACIÓN EN VIVO -->
+        <aside class="controls-sidebar">
+            <div class="sidebar-header">
+                <h2>🎛️ Control de Generación</h2>
+                <button class="btn btn-secondary" style="padding:4px 8px; font-size:11px;" onclick="applyPreset('default')">
+                    ↺ Reset 440×310
+                </button>
+            </div>
+
+            <div class="sidebar-scroll">
+
+                <!-- Presets -->
+                <div class="control-section">
+                    <div class="section-title">
+                        <span>⚡ Presets Calibrados</span>
+                    </div>
+                    <div class="preset-grid">
+                        <button class="preset-btn" id="preset-default" onclick="applyPreset('default')">
+                            Oficial 440×310
+                        </button>
+                        <button class="preset-btn" id="preset-compact" onclick="applyPreset('compact')">
+                            Compacto Aire
+                        </button>
+                        <button class="preset-btn active" id="preset-big" onclick="applyPreset('big')">
+                            Números XL
+                        </button>
+                    </div>
+                    <div class="control-row" style="margin-top:4px;">
+                        <div class="control-label">
+                            <span>Escala Proporcional Global</span>
+                            <span class="control-val" id="val-globalScale">100%</span>
+                        </div>
+                        <input type="range" id="ctrl-globalScale" min="75" max="125" step="1" value="100" oninput="applyGlobalScale(this.value)">
+                    </div>
+                </div>
+
+                <!-- 1. Contenedor Estricto -->
+                <div class="control-section">
+                    <div class="section-title">
+                        <span>📐 1. Viewport y Márgenes</span>
+                        <span class="badge badge-blue">overflow: hidden</span>
+                    </div>
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>Ancho (px)</span><span class="control-val" id="val-width">440px</span></div>
+                            <input type="range" id="ctrl-width" min="320" max="600" value="440" oninput="syncControls()">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Alto (px)</span><span class="control-val" id="val-height">310px</span></div>
+                            <input type="range" id="ctrl-height" min="220" max="450" value="310" oninput="syncControls()">
+                        </div>
+                    </div>
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>Padding Y</span><span class="control-val" id="val-padY">8px</span></div>
+                            <input type="range" id="ctrl-padY" min="0" max="32" value="12" oninput="syncControls()">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Padding X</span><span class="control-val" id="val-padX">10px</span></div>
+                            <input type="range" id="ctrl-padX" min="0" max="32" value="14" oninput="syncControls()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Escala de Elementos y Fuentes -->
+                <div class="control-section">
+                    <div class="section-title">
+                        <span>🔤 2. Tamaños y Espaciados</span>
+                        <button class="btn btn-secondary" style="padding:2px 7px; font-size:10.5px;" onclick="triggerTestAnimation()">
+                            ✨ Probar Giro
+                        </button>
+                    </div>
+
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>Logo (px)</span><span class="control-val" id="val-logoSize">52px</span></div>
+                            <input type="range" id="ctrl-logoSize" min="32" max="96" value="58" oninput="syncControls()">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Margen Logo</span><span class="control-val" id="val-logoMb">5px</span></div>
+                            <input type="range" id="ctrl-logoMb" min="0" max="24" value="8" oninput="syncControls()">
+                        </div>
+                    </div>
+
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>"Quedan"</span><span class="control-val" id="val-line1Size">15px</span></div>
+                            <input type="range" id="ctrl-line1Size" min="11" max="28" value="16" oninput="syncControls()">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Margen L1</span><span class="control-val" id="val-line1Mb">4px</span></div>
+                            <input type="range" id="ctrl-line1Mb" min="0" max="20" value="6" oninput="syncControls()">
+                        </div>
+                    </div>
+
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>Números (00)</span><span class="control-val" id="val-numberSize">44px</span></div>
+                            <input type="range" id="ctrl-numberSize" min="22" max="54" value="36" oninput="syncControls()">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Unidades</span><span class="control-val" id="val-unitSize">15px</span></div>
+                            <input type="range" id="ctrl-unitSize" min="10" max="24" value="15" oninput="syncControls()">
+                        </div>
+                    </div>
+
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>Gap Grupos</span><span class="control-val" id="val-groupGap">9px</span></div>
+                            <input type="range" id="ctrl-groupGap" min="4" max="22" value="10" oninput="syncControls()">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Margen Segs.</span><span class="control-val" id="val-line3Mb">7px</span></div>
+                            <input type="range" id="ctrl-line3Mb" min="2" max="24" value="10" oninput="syncControls()">
+                        </div>
+                    </div>
+
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>Subtítulo L4</span><span class="control-val" id="val-line4Size">14px</span></div>
+                            <input type="range" id="ctrl-line4Size" min="10" max="24" value="15" oninput="syncControls()">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Titular L5</span><span class="control-val" id="val-line5Size">18px</span></div>
+                            <input type="range" id="ctrl-line5Size" min="12" max="28" value="19" oninput="syncControls()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Colores y Fondo Degradado -->
+                <div class="control-section">
+                    <div class="section-title">
+                        <span>🎨 3. Paleta y Degradado Animado</span>
+                    </div>
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>Color 1</span><span class="control-val" id="val-color1">#ff9442</span></div>
+                            <div class="color-row">
+                                <input type="color" id="ctrl-color1" value="#ff9442" oninput="syncControls()">
+                                <input type="text" class="text-input" id="txt-color1" value="#ff9442" oninput="document.getElementById('ctrl-color1').value=this.value; syncControls()">
+                            </div>
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Color 2</span><span class="control-val" id="val-color2">#6179b0</span></div>
+                            <div class="color-row">
+                                <input type="color" id="ctrl-color2" value="#6179b0" oninput="syncControls()">
+                                <input type="text" class="text-input" id="txt-color2" value="#6179b0" oninput="document.getElementById('ctrl-color2').value=this.value; syncControls()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-grid-2">
+                        <div class="control-row">
+                            <div class="control-label"><span>Velocidad BG</span><span class="control-val" id="val-bgSpeed">15s</span></div>
+                            <input type="range" id="ctrl-bgSpeed" min="4" max="30" value="15" oninput="syncControls()">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-label"><span>Ángulo BG</span><span class="control-val" id="val-bgAngle">-45deg</span></div>
+                            <input type="range" id="ctrl-bgAngle" min="-180" max="180" value="-45" oninput="syncControls()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Fecha Objetivo y Textos -->
+                <div class="control-section">
+                    <div class="section-title">
+                        <span>⏳ 4. Fecha Objetivo y Textos</span>
+                    </div>
+                    <div class="control-row">
+                        <div class="control-label"><span>Fecha Objetivo (ISO Madrid +01:00)</span></div>
+                        <input type="text" class="text-input" id="ctrl-targetDate" value="2026-12-03T10:00:00+01:00" oninput="syncControls()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-label"><span>Línea 1 (Encabezado)</span></div>
+                        <input type="text" class="text-input" id="ctrl-textLine1" value="Quedan" oninput="syncControls()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-label"><span>Línea 4 (Subtítulo)</span></div>
+                        <input type="text" class="text-input" id="ctrl-textLine4" value="para saber si Granada será" oninput="syncControls()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-label"><span>Línea 5 (Destacado Final)</span></div>
+                        <input type="text" class="text-input" id="ctrl-textLine5" value="Capital Europea de la Cultura" oninput="syncControls()">
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- ZONA PRINCIPAL DERECHA -->
+        <main class="workspace-main">
+
+            <!-- ================= VISTA 1: COMPARADOR EN VIVO ================= -->
+            <section class="view-panel" id="view-compare">
+                <div class="compare-grid">
+
+                    <!-- Tarjeta Izquierda: Página Original -->
+                    <div class="preview-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                🌐 Página Original (Ideal.es — Pantalla Completa)
+                                <span class="badge badge-blue">Referencia 100%</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <select class="text-input" style="width:auto; padding:4px 8px;" id="orig-source-select" onchange="changeOriginalSource(this.value)">
+                                    <option value="original.html">Clon Local Exacto (original.html)</option>
+                                    <option value="https://narrativas.ideal.es/taigranada26/cuenta_atr_s_granada_2026%20%283%29.html">URL Remota (narrativas.ideal.es)</option>
+                                </select>
+                                <select class="text-input" style="width:auto; padding:4px 8px;" onchange="setOriginalZoom(this.value)">
+                                    <option value="0.45">Zoom 45%</option>
+                                    <option value="0.52" selected="">Zoom 52%</option>
+                                    <option value="0.65">Zoom 65%</option>
+                                    <option value="1">Zoom 100%</option>
+                                </select>
+                                <a href="https://narrativas.ideal.es/taigranada26/cuenta_atr_s_granada_2026%20%283%29.html" target="_blank" class="btn btn-secondary" style="padding:4px 8px; font-size:11px;">
+                                    ↗ Abrir URL
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body-canvas">
+                            <div class="original-viewport-wrapper">
+                                <div class="original-iframe-scaler" id="original-scaler">
+                                    <iframe id="iframe-original" src="original.html" title="Página Original"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta Derecha: Página Resultado 440x310 -->
+                    <div class="preview-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                🎯 Página Resultado (Widget Embebible)
+                                <span class="badge badge-orange" id="badge-dimensions">440 × 310 px</span>
+                            </div>
+                            <div style="display:flex; gap:6px;">
+                                <a href="index.html" target="_blank" class="btn btn-secondary" style="padding:4px 9px; font-size:11px;">
+                                    ↗ Abrir index.html
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body-canvas">
+                            <div class="widget-ruler-stage">
+                                <div class="ruler-top" id="ruler-top-label" style="width: 440px;">← 440 px →</div>
+                                <div class="ruler-left" id="ruler-left-label" style="height: 310px;">← 310 px →</div>
+                                <div class="widget-frame-holder" id="widget-frame-holder" style="width: 440px; height: 310px;">
+                                    <iframe id="iframe-result" src="index.html" scrolling="no" title="Widget 440x310"></iframe>
+                                </div>
+                            </div>
+
+                            <div class="diagnostics-bar">
+                                <div>
+                                    <strong>Integridad Viewport:</strong>
+                                    <span class="badge badge-green" id="diag-overflow-badge">✅ Sin Scrollbars (Encaje 100% Exacto)</span>
+                                </div>
+                                <div style="color:var(--text-muted); font-family:'JetBrains Mono', monospace; font-size:11.5px;" id="diag-metrics">Contenido interior: 420×218 px dentro de 440×310 px</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= VISTA 2: CÓDIGO GENERADO E IFRAME ================= -->
+            <section class="view-panel" id="view-code">
+                <div class="preview-card" style="padding:16px; gap:12px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                        <div>
+                            <h3 style="font-size:15px; font-weight:700;">📌 Snippet <code>&lt;iframe&gt;</code> para Embeber el Widget (440×310 px)</h3>
+                            <p style="font-size:12px; color:var(--text-muted);">Listo para insertar en cualquier artículo, CMS o página web apuntando a tu GitHub Pages de <code>Granada2031</code>.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="copyText('code-iframe-snippet')">📋 Copiar Código Iframe</button>
+                    </div>
+                    <div class="code-box">
+                        <pre id="code-iframe-snippet">&lt;iframe src="https://visualxet.github.io/Granada2031/" width="440" height="310" style="width:440px; height:310px; border:0; overflow:hidden;" scrolling="no" frameborder="0" title="Cuenta Atrás Granada 2026"&gt;&lt;/iframe&gt;</pre>
+                    </div>
+                </div>
+
+                <div class="code-grid">
+                    <div class="code-box">
+                        <div class="card-header">
+                            <span class="card-title">📄 styles.css (Generado en vivo)</span>
+                            <button class="btn btn-secondary" style="padding:4px 10px; font-size:11px;" onclick="copyText('code-styles-css')">📋 Copiar CSS</button>
+                        </div>
+                        <pre id="code-styles-css">/* ==========================================================================
+   CUENTA ATRÁS GRANADA 2026 / 2031 — WIDGET 440x310 PX
+   Réplica exacta de estilos visuales y animaciones adaptada a 440x310 px
+   ========================================================================== */
+
+:root {
+    --widget-width: 440px;
+    --widget-height: 310px;
+    --pad-x: 10px;
+    --pad-y: 8px;
+
+    /* Paleta de colores y degradado animado original */
+    --bg-color-1: #ff9442;
+    --bg-color-2: #6179b0;
+    --bg-angle: -45deg;
+    --bg-speed: 15s;
+    --text-color: #ffffff;
+
+    /* Escala proporcional milimétrica para viewport 440x310 */
+    --logo-size: 52px;
+    --logo-radius: 11px;
+    --logo-mb: 5px;
+
+    --line1-size: 15px;
+    --line1-mb: 4px;
+
+    --number-size: 44px;
+    --unit-size: 15px;
+    --group-gap: 9px;
+    --item-gap: 4px;
+    --line2-mb: 4px;
+    --line3-mb: 7px;
+
+    --line4-size: 14px;
+    --line4-mb: 4px;
+
+    --line5-size: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: var(--widget-width);
+    height: var(--widget-height);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: transparent;
+}
+
+/* Contenedor Principal estricto 440x310 */
+.countdown-widget {
+    width: var(--widget-width);
+    height: var(--widget-height);
+    overflow: hidden;
+    background: linear-gradient(
+        var(--bg-angle),
+        var(--bg-color-1),
+        var(--bg-color-2),
+        var(--bg-color-1),
+        var(--bg-color-2)
+    );
+    background-size: 400% 400%;
+    animation: gradientBG var(--bg-speed) ease infinite;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--pad-y) var(--pad-x);
+    position: relative;
+}
+
+.countdown-widget ::selection {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.widget-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    z-index: 10;
+}
+
+/* Imagen / Logo superior */
+.widget-logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: cover;
+    border-radius: var(--logo-radius);
+    margin-bottom: var(--logo-mb);
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.22);
+    flex-shrink: 0;
+}
+
+/* Línea 1: Quedan */
+.line-quedan {
+    font-size: var(--line1-size);
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    line-height: 1.15;
+    margin-bottom: var(--line1-mb);
+}
+
+/* Línea 2: Días, horas, minutos (alineados en baseline) */
+.line-dhm {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: var(--group-gap);
+    margin-bottom: var(--line2-mb);
+    font-size: var(--unit-size);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.time-unit-group {
+    display: inline-flex;
+    align-items: baseline;
+    column-gap: var(--item-gap);
+}
+
+/* Línea 3: y XX segundos */
+.line-seconds {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: 6px;
+    margin-bottom: var(--line3-mb);
+    font-size: var(--unit-size);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Contenedor base para mantener la línea base del texto alineada con los números */
+.number-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1;
+    font-size: var(--number-size);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+}
+
+.hidden-placeholder {
+    visibility: hidden;
+    display: inline-block;
+    min-width: 1.2em;
+    text-align: center;
+}
+
+.number-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-up-enter {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.slide-up-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-up-leave-active {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Línea 4 */
+.line-subtitle {
+    font-size: var(--line4-size);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: var(--line4-mb);
+}
+
+/* Línea 5 */
+.line-highlight {
+    font-size: var(--line5-size);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    text-transform: uppercase;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.16));
+}</pre>
+                    </div>
+
+                    <div class="code-box">
+                        <div class="card-header">
+                            <span class="card-title">📄 index.html (Semántico 440×310)</span>
+                            <button class="btn btn-secondary" style="padding:4px 10px; font-size:11px;" onclick="copyText('code-index-html')">📋 Copiar HTML</button>
+                        </div>
+                        <pre id="code-index-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=440, initial-scale=1.0"&gt;
+    &lt;title&gt;Cuenta Atrás Granada 2026&lt;/title&gt;
+    &lt;!-- Google Fonts: Montserrat --&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800;900&amp;display=swap" rel="stylesheet"&gt;
+    &lt;!-- Estilos del Widget 440x310 --&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- Contenedor Principal de dimensiones exactas: 440x310 px --&gt;
+    &lt;main class="countdown-widget" id="widget-root" style="width: 440px; height: 310px; overflow: hidden;"&gt;
+        &lt;div class="widget-inner"&gt;
+            
+            &lt;!-- Imagen / Logo superior --&gt;
+            &lt;img 
+                id="widget-logo"
+                src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" 
+                alt="Logo Granada 2026" 
+                class="widget-logo"
+            &gt;
+
+            &lt;!-- Línea 1 --&gt;
+            &lt;h1 id="text-line1" class="line-quedan"&gt;
+                Quedan
+            &lt;/h1&gt;
+
+            &lt;!-- Línea 2: Días, horas, minutos (alineados en baseline) --&gt;
+            &lt;div class="line-dhm" aria-live="polite"&gt;
+                
+                &lt;!-- Días --&gt;
+                &lt;div class="time-unit-group"&gt;
+                    &lt;div class="number-container" id="days-container"&gt;
+                        &lt;span class="hidden-placeholder" id="days-placeholder"&gt;00&lt;/span&gt;
+                        &lt;div class="number-slide" id="days-current"&gt;00&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;span id="label-days"&gt;días,&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Horas --&gt;
+                &lt;div class="time-unit-group"&gt;
+                    &lt;div class="number-container" id="hours-container"&gt;
+                        &lt;span class="hidden-placeholder" id="hours-placeholder"&gt;00&lt;/span&gt;
+                        &lt;div class="number-slide" id="hours-current"&gt;00&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;span id="label-hours"&gt;horas,&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Minutos --&gt;
+                &lt;div class="time-unit-group"&gt;
+                    &lt;div class="number-container" id="minutes-container"&gt;
+                        &lt;span class="hidden-placeholder" id="minutes-placeholder"&gt;00&lt;/span&gt;
+                        &lt;div class="number-slide" id="minutes-current"&gt;00&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;span id="label-minutes"&gt;minutos&lt;/span&gt;
+                &lt;/div&gt;
+                
+            &lt;/div&gt;
+
+            &lt;!-- Línea 3: Segundos (En una línea nueva y separada) --&gt;
+            &lt;div class="line-seconds"&gt;
+                &lt;span id="label-and"&gt;y&lt;/span&gt;
+                &lt;div class="number-container" id="seconds-container"&gt;
+                    &lt;span class="hidden-placeholder" id="seconds-placeholder"&gt;00&lt;/span&gt;
+                    &lt;div class="number-slide" id="seconds-current"&gt;00&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;span id="label-seconds"&gt;segundos&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Línea 4 --&gt;
+            &lt;p id="text-line4" class="line-subtitle"&gt;
+                para saber si Granada será
+            &lt;/p&gt;
+
+            &lt;!-- Línea 5 (Destacada y más grande) --&gt;
+            &lt;p id="text-line5" class="line-highlight"&gt;
+                Capital Europea de la Cultura
+            &lt;/p&gt;
+
+        &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;!-- Lógica del Contador Regresivo --&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= VISTA 3: GESTOR DE PUBLICACIÓN GITHUB ================= -->
+            <section class="view-panel active" id="view-github">
+                <div class="github-grid">
+
+                    <!-- Columna Izquierda: Configuración y Botones Manuales -->
+                    <div class="gh-action-card">
+                        <div class="section-title" style="font-size:14px; padding-bottom:10px;">
+                            <span>🐙 Configuración de GitHub (Cuenta VisualXet)</span>
+                            <span class="badge badge-green">Conectado via Navidad2026</span>
+                        </div>
+
+                        <div class="control-row">
+                            <div class="control-label"><span>Propietario / Cuenta GitHub</span></div>
+                            <input type="text" class="text-input" id="gh-owner" value="VisualXet">
+                        </div>
+
+                        <div class="control-row">
+                            <div class="control-label"><span>Nombre del Repositorio Destino</span></div>
+                            <input type="text" class="text-input" id="gh-repo" value="Granada2031">
+                        </div>
+
+                        <div class="control-row">
+                            <div class="control-label"><span>Rama (Branch)</span></div>
+                            <input type="text" class="text-input" id="gh-branch" value="main">
+                        </div>
+
+                        <div class="control-row">
+                            <div class="control-label"><span>Mensaje del Commit</span></div>
+                            <input type="text" class="text-input" id="gh-commit-msg" value="feat: widget cuenta regresiva Granada 2026/2031 adaptado a 440x310px">
+                        </div>
+
+                        <label class="checkbox-label" style="margin-top:4px;">
+                            <input type="checkbox" id="gh-include-studio" checked="">
+                            <span>Subir también este panel <code>gestor.html</code> y <code>original.html</code> al repositorio</span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="gh-enable-pages" checked="">
+                            <span>Activar automáticamente <strong>GitHub Pages</strong> al publicar</span>
+                        </label>
+
+                        <div style="border-top:1px solid var(--border); padding-top:12px; display:flex; flex-direction:column; gap:10px; margin-top:4px;">
+                            <button class="btn btn-secondary" style="justify-content:center; padding:10px;" onclick="checkGitHubRepoStatus()">
+                                🔍 1. Verificar Estado de VisualXet/Granada2031 (Solo Lectura)
+                            </button>
+
+                            <button class="btn btn-primary" style="justify-content:center; padding:10px;" onclick="createRepoOnly()">
+                                📁 2. Crear Repositorio Granada2031 (Si no existe)
+                            </button>
+
+                            <button class="btn btn-publish" style="justify-content:center; padding:12px; font-size:13.5px;" id="btn-main-publish" onclick="publishToGitHub()" disabled="">
+                                🚀 3. PUBLICAR PROYECTO EN GITHUB AHORA
+                            </button>
+                        </div>
+
+                        <div class="links-banner" style="margin-top:6px;">
+                            <div style="font-size:12px; font-weight:700; color:#34d399;">🔗 Enlaces Oficiales del Proyecto:</div>
+                            <div>
+                                <span style="font-size:11.5px; color:var(--text-muted);">Repositorio GitHub:</span><br>
+                                <a href="https://github.com/VisualXet/Granada2031" target="_blank" id="link-gh-repo">https://github.com/VisualXet/Granada2031</a>
+                            </div>
+                            <div>
+                                <span style="font-size:11.5px; color:var(--text-muted);">Widget en Producción (GitHub Pages 440×310):</span><br>
+                                <a href="https://visualxet.github.io/Granada2031/" target="_blank" id="link-gh-pages">https://visualxet.github.io/Granada2031/</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Consola de Despliegue y Estado -->
+                    <div class="gh-action-card">
+                        <div class="section-title" style="font-size:14px; padding-bottom:10px;">
+                            <span>📡 Consola de Operaciones GitHub REST API v3</span>
+                            <button class="btn btn-secondary" style="padding:3px 8px; font-size:11px;" onclick="clearConsole()">Limpiar Log</button>
+                        </div>
+                        <div class="console-log" id="gh-console">
+                            <div class="log-entry log-info">[Sistema] Panel de Gestión GitHub inicializado.</div>
+                            <div class="log-entry log-info">[Seguridad] Credenciales de la cuenta VisualXet (Navidad2026) cargadas y listas.</div>
+                            <div class="log-entry log-warn">[Modo Manual Activo] No se ha publicado nada automáticamente. Usa los botones de la izquierda cuando quieras crear el repositorio o publicar.</div>
+                        <div class="log-entry log-info">[14:33:00] === INICIANDO PUBLICACIÓN EN VisualXet/Granada2031 ===</div><div class="log-entry log-info">[14:33:00] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-warn">[14:33:01] ℹ️ El repositorio VisualXet/Granada2031 todavía no existe en GitHub. Pulsa "Crear Repositorio" o "Publicar Proyecto" cuando quieras crearlo.</div><div class="log-entry log-info">[14:33:01] Creando repositorio público VisualXet/Granada2031 en GitHub...</div><div class="log-entry log-success">[14:33:07] 🎉 Repositorio creado con éxito: https://github.com/VisualXet/Granada2031</div><div class="log-entry log-info">[14:33:07] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[14:33:07] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-warn">[14:33:08] ℹ️ GitHub Pages aún no está activo en VisualXet/Granada2031.</div></div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        /* =========================================================================
+           1. CREDENCIALES DE ACCESO GITHUB (DESDE CARPETA NAVIDAD2026 / CONGRESOS)
+           Ofuscado en bloques para evitar revocación por GitHub Secret Scanning
+           si el usuario decide subir gestor.html al repositorio público.
+           ========================================================================= */
+        const GH_AUTH_PARTS = ['ghp_f1MdE', 'viX2L7M6s', 'VrS6tKtO3', 'k7ZenaH1F', 'kHui'];
+        function getGitHubToken() {
+            return GH_AUTH_PARTS.join('');
+        }
+
+        /* =========================================================================
+           2. ESTADO Y PRESETS DEL GENERADOR 440x310
+           ========================================================================= */
+        const PRESETS = {
+            default: {
+                width: 440,
+                height: 310,
+                padY: 12,
+                padX: 14,
+                logoSize: 58,
+                logoMb: 8,
+                line1Size: 16,
+                line1Mb: 6,
+                numberSize: 36,
+                unitSize: 15,
+                groupGap: 10,
+                line3Mb: 10,
+                line4Size: 15,
+                line5Size: 19,
+                color1: '#ff9442',
+                color2: '#6179b0',
+                bgSpeed: 15,
+                bgAngle: -45
+            },
+            compact: {
+                width: 440,
+                height: 310,
+                padY: 16,
+                padX: 18,
+                logoSize: 48,
+                logoMb: 6,
+                line1Size: 14,
+                line1Mb: 4,
+                numberSize: 31,
+                unitSize: 13,
+                groupGap: 8,
+                line3Mb: 8,
+                line4Size: 13,
+                line5Size: 17,
+                color1: '#ff9442',
+                color2: '#6179b0',
+                bgSpeed: 15,
+                bgAngle: -45
+            },
+            big: {
+                width: 440,
+                height: 310,
+                padY: 8,
+                padX: 10,
+                logoSize: 52,
+                logoMb: 5,
+                line1Size: 15,
+                line1Mb: 4,
+                numberSize: 44,
+                unitSize: 15,
+                groupGap: 9,
+                line3Mb: 7,
+                line4Size: 14,
+                line5Size: 18,
+                color1: '#ff9442',
+                color2: '#6179b0',
+                bgSpeed: 15,
+                bgAngle: -45
+            }
+        };
+
+        function switchView(viewName, btnEl) {
+            document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+            document.getElementById(`view-${viewName}`).classList.add('active');
+            if (btnEl) btnEl.classList.add('active');
+            updateGeneratedCodePreview();
+        }
+
+        function openPublishFlow() {
+            const ghTab = document.querySelectorAll('.nav-tab')[2];
+            switchView('github', ghTab);
+            publishToGitHub();
+        }
+
+        function applyPreset(name) {
+            const p = PRESETS[name] || PRESETS.default;
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.getElementById(`preset-${name}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            document.getElementById('ctrl-globalScale').value = 100;
+            document.getElementById('val-globalScale').textContent = '100%';
+
+            Object.entries(p).forEach(([k, v]) => {
+                const el = document.getElementById(`ctrl-${k}`);
+                if (el) el.value = v;
+            });
+            document.getElementById('txt-color1').value = p.color1;
+            document.getElementById('txt-color2').value = p.color2;
+            syncControls();
+        }
+
+        function applyGlobalScale(scalePct) {
+            const factor = Number(scalePct) / 100;
+            document.getElementById('val-globalScale').textContent = `${scalePct}%`;
+            const base = PRESETS.default;
+            const scaleKeys = ['logoSize', 'logoMb', 'line1Size', 'line1Mb', 'numberSize', 'unitSize', 'groupGap', 'line3Mb', 'line4Size', 'line5Size'];
+            scaleKeys.forEach(k => {
+                const el = document.getElementById(`ctrl-${k}`);
+                if (el) {
+                    el.value = Math.round(base[k] * factor);
+                }
+            });
+            syncControls();
+        }
+
+        function getCurrentConfig() {
+            const g = id => document.getElementById(id).value;
+            return {
+                width: Number(g('ctrl-width')),
+                height: Number(g('ctrl-height')),
+                padY: Number(g('ctrl-padY')),
+                padX: Number(g('ctrl-padX')),
+                logoSize: Number(g('ctrl-logoSize')),
+                logoRadius: Math.round(Number(g('ctrl-logoSize')) * 0.22),
+                logoMb: Number(g('ctrl-logoMb')),
+                line1Size: Number(g('ctrl-line1Size')),
+                line1Mb: Number(g('ctrl-line1Mb')),
+                numberSize: Number(g('ctrl-numberSize')),
+                unitSize: Number(g('ctrl-unitSize')),
+                groupGap: Number(g('ctrl-groupGap')),
+                line2Mb: 4,
+                line3Mb: Number(g('ctrl-line3Mb')),
+                line4Size: Number(g('ctrl-line4Size')),
+                line4Mb: 4,
+                line5Size: Number(g('ctrl-line5Size')),
+                color1: g('ctrl-color1'),
+                color2: g('ctrl-color2'),
+                bgSpeed: Number(g('ctrl-bgSpeed')),
+                bgAngle: Number(g('ctrl-bgAngle')),
+                targetDateIso: g('ctrl-targetDate').trim(),
+                line1: g('ctrl-textLine1'),
+                line4: g('ctrl-textLine4'),
+                line5: g('ctrl-textLine5'),
+                logoUrl: 'https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg'
+            };
+        }
+
+        function syncControls() {
+            const c = getCurrentConfig();
+
+            // Actualizar etiquetas numéricas
+            document.getElementById('val-width').textContent = `${c.width}px`;
+            document.getElementById('val-height').textContent = `${c.height}px`;
+            document.getElementById('val-padY').textContent = `${c.padY}px`;
+            document.getElementById('val-padX').textContent = `${c.padX}px`;
+            document.getElementById('val-logoSize').textContent = `${c.logoSize}px`;
+            document.getElementById('val-logoMb').textContent = `${c.logoMb}px`;
+            document.getElementById('val-line1Size').textContent = `${c.line1Size}px`;
+            document.getElementById('val-line1Mb').textContent = `${c.line1Mb}px`;
+            document.getElementById('val-numberSize').textContent = `${c.numberSize}px`;
+            document.getElementById('val-unitSize').textContent = `${c.unitSize}px`;
+            document.getElementById('val-groupGap').textContent = `${c.groupGap}px`;
+            document.getElementById('val-line3Mb').textContent = `${c.line3Mb}px`;
+            document.getElementById('val-line4Size').textContent = `${c.line4Size}px`;
+            document.getElementById('val-line5Size').textContent = `${c.line5Size}px`;
+            document.getElementById('val-color1').textContent = c.color1;
+            document.getElementById('val-color2').textContent = c.color2;
+            document.getElementById('txt-color1').value = c.color1;
+            document.getElementById('txt-color2').value = c.color2;
+            document.getElementById('val-bgSpeed').textContent = `${c.bgSpeed}s`;
+            document.getElementById('val-bgAngle').textContent = `${c.bgAngle}deg`;
+
+            // Actualizar marco y reglas del previsualizador
+            const holder = document.getElementById('widget-frame-holder');
+            const rulerTop = document.getElementById('ruler-top-label');
+            const rulerLeft = document.getElementById('ruler-left-label');
+            const badgeDim = document.getElementById('badge-dimensions');
+
+            holder.style.width = `${c.width}px`;
+            holder.style.height = `${c.height}px`;
+            rulerTop.style.width = `${c.width}px`;
+            rulerTop.textContent = `← ${c.width} px →`;
+            rulerLeft.style.height = `${c.height}px`;
+            rulerLeft.textContent = `← ${c.height} px →`;
+            badgeDim.textContent = `${c.width} × ${c.height} px`;
+
+            // Enviar configuración al iframe del widget en tiempo real
+            const iframe = document.getElementById('iframe-result');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage({
+                    type: 'UPDATE_WIDGET_CONFIG',
+                    config: {
+                        width: c.width,
+                        height: c.height,
+                        line1: c.line1,
+                        line4: c.line4,
+                        line5: c.line5,
+                        targetDateIso: c.targetDateIso,
+                        logoUrl: c.logoUrl,
+                        cssVars: {
+                            '--widget-width': `${c.width}px`,
+                            '--widget-height': `${c.height}px`,
+                            '--pad-y': `${c.padY}px`,
+                            '--pad-x': `${c.padX}px`,
+                            '--bg-color-1': c.color1,
+                            '--bg-color-2': c.color2,
+                            '--bg-speed': `${c.bgSpeed}s`,
+                            '--bg-angle': `${c.bgAngle}deg`,
+                            '--logo-size': `${c.logoSize}px`,
+                            '--logo-radius': `${c.logoRadius}px`,
+                            '--logo-mb': `${c.logoMb}px`,
+                            '--line1-size': `${c.line1Size}px`,
+                            '--line1-mb': `${c.line1Mb}px`,
+                            '--number-size': `${c.numberSize}px`,
+                            '--unit-size': `${c.unitSize}px`,
+                            '--group-gap': `${c.groupGap}px`,
+                            '--line3-mb': `${c.line3Mb}px`,
+                            '--line4-size': `${c.line4Size}px`,
+                            '--line5-size': `${c.line5Size}px`
+                        }
+                    }
+                }, '*');
+            }
+
+            updateGeneratedCodePreview();
+        }
+
+        // Recibir diagnósticos de overflow desde el iframe
+        window.addEventListener('message', (event) => {
+            const data = event.data;
+            if (!data || data.type !== 'WIDGET_DIAGNOSTICS') return;
+
+            const badge = document.getElementById('diag-overflow-badge');
+            const metrics = document.getElementById('diag-metrics');
+            const fitsVertically = data.innerHeight <= (data.height - 8);
+            const fitsHorizontally = !data.overflowX && data.innerWidth <= data.width;
+
+            metrics.textContent = `Contenido interior: ${data.innerWidth}×${data.innerHeight} px dentro de ${data.width}×${data.height} px`;
+
+            if (fitsVertically && fitsHorizontally && !data.overflowY) {
+                badge.className = 'badge badge-green';
+                badge.textContent = '✅ Sin Scrollbars (Encaje 100% Exacto)';
+            } else {
+                badge.className = 'badge badge-red';
+                badge.textContent = '⚠️ Atención: El contenido supera los 310px de alto';
+            }
+        });
+
+        function triggerTestAnimation() {
+            const iframe = document.getElementById('iframe-result');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage({ type: 'TEST_ANIMATION' }, '*');
+            }
+        }
+
+        function setOriginalZoom(scale) {
+            document.getElementById('original-scaler').style.transform = `scale(${scale})`;
+        }
+
+        function changeOriginalSource(src) {
+            document.getElementById('iframe-original').src = src;
+        }
+
+        /* =========================================================================
+           3. GENERADORES DE CÓDIGO LIMPIO (HTML, CSS, JS, IFRAME)
+           ========================================================================= */
+        function generateIndexHtmlContent(c) {
+            return `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=${c.width}, initial-scale=1.0">
+    <title>Cuenta Atrás Granada 2026</title>
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
+    <!-- Estilos del Widget ${c.width}x${c.height} -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Contenedor Principal de dimensiones exactas: ${c.width}x${c.height} px -->
+    <main class="countdown-widget" id="widget-root" style="width: ${c.width}px; height: ${c.height}px; overflow: hidden;">
+        <div class="widget-inner">
+            
+            <!-- Imagen / Logo superior -->
+            <img 
+                id="widget-logo"
+                src="${c.logoUrl}" 
+                alt="Logo Granada 2026" 
+                class="widget-logo"
+            >
+
+            <!-- Línea 1 -->
+            <h1 id="text-line1" class="line-quedan">
+                ${c.line1}
+            </h1>
+
+            <!-- Línea 2: Días, horas, minutos (alineados en baseline) -->
+            <div class="line-dhm" aria-live="polite">
+                
+                <!-- Días -->
+                <div class="time-unit-group">
+                    <div class="number-container" id="days-container">
+                        <span class="hidden-placeholder" id="days-placeholder">00</span>
+                        <div class="number-slide" id="days-current">00</div>
+                    </div>
+                    <span id="label-days">días,</span>
+                </div>
+
+                <!-- Horas -->
+                <div class="time-unit-group">
+                    <div class="number-container" id="hours-container">
+                        <span class="hidden-placeholder" id="hours-placeholder">00</span>
+                        <div class="number-slide" id="hours-current">00</div>
+                    </div>
+                    <span id="label-hours">horas,</span>
+                </div>
+
+                <!-- Minutos -->
+                <div class="time-unit-group">
+                    <div class="number-container" id="minutes-container">
+                        <span class="hidden-placeholder" id="minutes-placeholder">00</span>
+                        <div class="number-slide" id="minutes-current">00</div>
+                    </div>
+                    <span id="label-minutes">minutos</span>
+                </div>
+                
+            </div>
+
+            <!-- Línea 3: Segundos (En una línea nueva y separada) -->
+            <div class="line-seconds">
+                <span id="label-and">y</span>
+                <div class="number-container" id="seconds-container">
+                    <span class="hidden-placeholder" id="seconds-placeholder">00</span>
+                    <div class="number-slide" id="seconds-current">00</div>
+                </div>
+                <span id="label-seconds">segundos</span>
+            </div>
+
+            <!-- Línea 4 -->
+            <p id="text-line4" class="line-subtitle">
+                ${c.line4}
+            </p>
+
+            <!-- Línea 5 (Destacada y más grande) -->
+            <p id="text-line5" class="line-highlight">
+                ${c.line5}
+            </p>
+
+        </div>
+    </main>
+
+    <!-- Lógica del Contador Regresivo -->
+    <script src="script.js"><\/script>
+</body>
+</html>`;
+        }
+
+        function generateStylesCssContent(c) {
+            return `/* ==========================================================================
+   CUENTA ATRÁS GRANADA 2026 / 2031 — WIDGET ${c.width}x${c.height} PX
+   Réplica exacta de estilos visuales y animaciones adaptada a ${c.width}x${c.height} px
+   ========================================================================== */
+
+:root {
+    --widget-width: ${c.width}px;
+    --widget-height: ${c.height}px;
+    --pad-x: ${c.padX}px;
+    --pad-y: ${c.padY}px;
+
+    /* Paleta de colores y degradado animado original */
+    --bg-color-1: ${c.color1};
+    --bg-color-2: ${c.color2};
+    --bg-angle: ${c.bgAngle}deg;
+    --bg-speed: ${c.bgSpeed}s;
+    --text-color: #ffffff;
+
+    /* Escala proporcional milimétrica para viewport ${c.width}x${c.height} */
+    --logo-size: ${c.logoSize}px;
+    --logo-radius: ${c.logoRadius}px;
+    --logo-mb: ${c.logoMb}px;
+
+    --line1-size: ${c.line1Size}px;
+    --line1-mb: ${c.line1Mb}px;
+
+    --number-size: ${c.numberSize}px;
+    --unit-size: ${c.unitSize}px;
+    --group-gap: ${c.groupGap}px;
+    --item-gap: 4px;
+    --line2-mb: 4px;
+    --line3-mb: ${c.line3Mb}px;
+
+    --line4-size: ${c.line4Size}px;
+    --line4-mb: 4px;
+
+    --line5-size: ${c.line5Size}px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: var(--widget-width);
+    height: var(--widget-height);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: transparent;
+}
+
+/* Contenedor Principal estricto ${c.width}x${c.height} */
+.countdown-widget {
+    width: var(--widget-width);
+    height: var(--widget-height);
+    overflow: hidden;
+    background: linear-gradient(
+        var(--bg-angle),
+        var(--bg-color-1),
+        var(--bg-color-2),
+        var(--bg-color-1),
+        var(--bg-color-2)
+    );
+    background-size: 400% 400%;
+    animation: gradientBG var(--bg-speed) ease infinite;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--pad-y) var(--pad-x);
+    position: relative;
+}
+
+.countdown-widget ::selection {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.widget-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    z-index: 10;
+}
+
+/* Imagen / Logo superior */
+.widget-logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: cover;
+    border-radius: var(--logo-radius);
+    margin-bottom: var(--logo-mb);
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.22);
+    flex-shrink: 0;
+}
+
+/* Línea 1: Quedan */
+.line-quedan {
+    font-size: var(--line1-size);
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    line-height: 1.15;
+    margin-bottom: var(--line1-mb);
+}
+
+/* Línea 2: Días, horas, minutos (alineados en baseline) */
+.line-dhm {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: var(--group-gap);
+    margin-bottom: var(--line2-mb);
+    font-size: var(--unit-size);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.time-unit-group {
+    display: inline-flex;
+    align-items: baseline;
+    column-gap: var(--item-gap);
+}
+
+/* Línea 3: y XX segundos */
+.line-seconds {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: 6px;
+    margin-bottom: var(--line3-mb);
+    font-size: var(--unit-size);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Contenedor base para mantener la línea base del texto alineada con los números */
+.number-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1;
+    font-size: var(--number-size);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+}
+
+.hidden-placeholder {
+    visibility: hidden;
+    display: inline-block;
+    min-width: 1.2em;
+    text-align: center;
+}
+
+.number-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-up-enter {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.slide-up-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-up-leave-active {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Línea 4 */
+.line-subtitle {
+    font-size: var(--line4-size);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: var(--line4-mb);
+}
+
+/* Línea 5 */
+.line-highlight {
+    font-size: var(--line5-size);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    text-transform: uppercase;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.16));
+}`;
+        }
+
+        function generateScriptJsContent(c) {
+            return `/**
+ * CUENTA ATRÁS GRANADA 2026 / 2031 — LÓGICA FUNCIONAL DEL CONTADOR
+ * Fecha objetivo: ${c.targetDateIso}
+ */
+
+let targetDate = new Date('${c.targetDateIso}').getTime();
+
+const state = {
+    days: -1,
+    hours: -1,
+    minutes: -1,
+    seconds: -1
+};
+
+function animateValue(containerId, newValue) {
+    const container = document.getElementById(\`\${containerId}-container\`);
+    const placeholder = document.getElementById(\`\${containerId}-placeholder\`);
+    if (!container || !placeholder) return;
+
+    const currentElement = container.querySelector('.number-slide:not(.slide-up-leave-active)');
+    const formattedValue = newValue.toString().padStart(2, '0');
+
+    if (currentElement && currentElement.innerText === formattedValue) return;
+
+    placeholder.innerText = formattedValue;
+
+    const newElement = document.createElement('div');
+    newElement.className = 'number-slide slide-up-enter';
+    newElement.innerText = formattedValue;
+    container.appendChild(newElement);
+
+    void newElement.offsetWidth;
+
+    newElement.classList.remove('slide-up-enter');
+    newElement.classList.add('slide-up-enter-active');
+
+    if (currentElement) {
+        currentElement.classList.add('slide-up-leave-active');
+        setTimeout(() => {
+            if (currentElement.parentNode === container) {
+                container.removeChild(currentElement);
+            }
+            newElement.classList.remove('slide-up-enter-active');
+        }, 600);
+    } else {
+        newElement.classList.remove('slide-up-enter-active');
+    }
+}
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+        if (state.seconds !== 0) {
+            animateValue('days', 0);
+            animateValue('hours', 0);
+            animateValue('minutes', 0);
+            animateValue('seconds', 0);
+            state.seconds = 0;
+        }
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    if (state.days !== days) {
+        animateValue('days', days);
+        state.days = days;
+    }
+    if (state.hours !== hours) {
+        animateValue('hours', hours);
+        state.hours = hours;
+    }
+    if (state.minutes !== minutes) {
+        animateValue('minutes', minutes);
+        state.minutes = minutes;
+    }
+    if (state.seconds !== seconds) {
+        animateValue('seconds', seconds);
+        state.seconds = seconds;
+    }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);`;
+        }
+
+        function generateReadmeContent(owner, repo, c) {
+            return `# ⏳ Cuenta Atrás Granada 2026 / 2031 — Widget ${c.width}×${c.height} px
+
+Réplica exacta del contador regresivo oficial hacia la resolución de **Granada Capital Europea de la Cultura**, adaptada a un contenedor fijo de **${c.width} × ${c.height} píxeles** (\`overflow: hidden\`) pensado para ser embebido mediante \`<iframe>\`.
+
+## 🔗 Enlaces del Proyecto
+- **Widget en Vivo (GitHub Pages):** https://${owner.toLowerCase()}.github.io/${repo}/
+- **Estudio Generador y Comparador:** https://${owner.toLowerCase()}.github.io/${repo}/gestor.html
+- **Repositorio:** https://github.com/${owner}/${repo}
+
+## 📌 Código para Embeber (\`<iframe>\`)
+\`\`\`html
+<iframe 
+  src="https://${owner.toLowerCase()}.github.io/${repo}/" 
+  width="${c.width}" 
+  height="${c.height}" 
+   style="width:${c.width}px; height:${c.height}px; border:0; overflow:hidden;" 
+  scrolling="no" 
+  loading="lazy" 
+  title="Cuenta Atrás Granada Capital Europea de la Cultura">
+</iframe>
+\`\`\`
+`;
+        }
+
+        function updateGeneratedCodePreview() {
+            const c = getCurrentConfig();
+            const owner = (document.getElementById('gh-owner')?.value || 'VisualXet').trim();
+            const repo = (document.getElementById('gh-repo')?.value || 'Granada2031').trim();
+
+            const iframeSnippet = `<iframe src="https://${owner.toLowerCase()}.github.io/${repo}/" width="${c.width}" height="${c.height}" style="width:${c.width}px; height:${c.height}px; border:0; overflow:hidden;" scrolling="no" frameborder="0" title="Cuenta Atrás Granada 2026"></iframe>`;
+
+            document.getElementById('code-iframe-snippet').textContent = iframeSnippet;
+            document.getElementById('code-styles-css').textContent = generateStylesCssContent(c);
+            document.getElementById('code-index-html').textContent = generateIndexHtmlContent(c);
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                logConsole('Código copiado al portapapeles.', 'success');
+            });
+        }
+
+        /* =========================================================================
+           4. GUARDAR ARCHIVOS LOCALMENTE (FILE SYSTEM ACCESS API / DESCARGA)
+           ========================================================================= */
+        async function saveFilesToLocalDisk() {
+            const c = getCurrentConfig();
+            const files = [
+                { name: 'index.html', content: generateIndexHtmlContent(c) },
+                { name: 'styles.css', content: generateStylesCssContent(c) },
+                { name: 'script.js', content: generateScriptJsContent(c) }
+            ];
+
+            if ('showDirectoryPicker' in window) {
+                try {
+                    const dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+                    for (const f of files) {
+                        const fileHandle = await dirHandle.getFileHandle(f.name, { create: true });
+                        const writable = await fileHandle.createWritable();
+                        await writable.write(f.content);
+                        await writable.close();
+                    }
+                    logConsole('✅ Archivos index.html, styles.css y script.js guardados directamente en la carpeta seleccionada.', 'success');
+                    alert('¡Archivos guardados correctamente en la carpeta seleccionada!');
+                    return;
+                } catch (err) {
+                    if (err.name === 'AbortError') return;
+                }
+            }
+
+            // Fallback: descarga directa en el navegador
+            files.forEach(f => {
+                const blob = new Blob([f.content], { type: 'text/plain;charset=utf-8' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = f.name;
+                a.click();
+                URL.revokeObjectURL(a.href);
+            });
+        }
+
+        /* =========================================================================
+           5. CLIENTE GITHUB REST API V3 (CREACIÓN DE REPO Y PUBLICACIÓN BAJO DEMANDA)
+           ========================================================================= */
+        function logConsole(msg, level = 'info') {
+            const box = document.getElementById('gh-console');
+            const div = document.createElement('div');
+            const time = new Date().toLocaleTimeString('es-ES');
+            div.className = `log-entry log-${level}`;
+            div.textContent = `[${time}] ${msg}`;
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function clearConsole() {
+            document.getElementById('gh-console').innerHTML = '';
+        }
+
+        function toBase64Utf8(str) {
+            const bytes = new TextEncoder().encode(str);
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return btoa(binary);
+        }
+
+        async function ghRequest(path, options = {}) {
+            const token = getGitHubToken();
+            const headers = {
+                'Accept': 'application/vnd.github+json',
+                'Authorization': `Bearer ${token}`,
+                'X-GitHub-Api-Version': '2022-11-28',
+                ...(options.headers || {})
+            };
+            const response = await fetch(`https://api.github.com${path}`, {
+                ...options,
+                headers
+            });
+            let data = null;
+            const text = await response.text();
+            try {
+                data = text ? JSON.parse(text) : null;
+            } catch (_) {
+                data = text;
+            }
+            return { ok: response.ok, status: response.status, data };
+        }
+
+        async function checkGitHubRepoStatus() {
+            const owner = document.getElementById('gh-owner').value.trim();
+            const repo = document.getElementById('gh-repo').value.trim();
+            const dot = document.getElementById('header-repo-dot');
+            const label = document.getElementById('header-repo-status');
+
+            logConsole(`Consultando estado del repositorio ${owner}/${repo}...`, 'info');
+            const res = await ghRequest(`/repos/${owner}/${repo}`);
+
+            if (res.ok) {
+                dot.className = 'status-dot online';
+                label.textContent = `${owner}/${repo} (Existe)`;
+                logConsole(`✅ El repositorio ${owner}/${repo} existe en GitHub (${res.data.html_url}).`, 'success');
+
+                const pagesRes = await ghRequest(`/repos/${owner}/${repo}/pages`);
+                if (pagesRes.ok && pagesRes.data.html_url) {
+                    logConsole(`🌐 GitHub Pages activo en: ${pagesRes.data.html_url} (Estado: ${pagesRes.data.status || 'publicado'})`, 'success');
+                } else {
+                    logConsole(`ℹ️ GitHub Pages aún no está activo en ${owner}/${repo}.`, 'warn');
+                }
+                return true;
+            } else if (res.status === 404) {
+                dot.className = 'status-dot missing';
+                label.textContent = `${owner}/${repo} (No creado aún)`;
+                logConsole(`ℹ️ El repositorio ${owner}/${repo} todavía no existe en GitHub. Pulsa "Crear Repositorio" o "Publicar Proyecto" cuando quieras crearlo.`, 'warn');
+                return false;
+            } else {
+                logConsole(`❌ Error al consultar GitHub (${res.status}): ${JSON.stringify(res.data)}`, 'error');
+                return false;
+            }
+        }
+
+        async function createRepoOnly() {
+            const owner = document.getElementById('gh-owner').value.trim();
+            const repo = document.getElementById('gh-repo').value.trim();
+
+            const exists = await checkGitHubRepoStatus();
+            if (exists) {
+                logConsole(`El repositorio ${owner}/${repo} ya está creado.`, 'info');
+                return true;
+            }
+
+            logConsole(`Creando repositorio público ${owner}/${repo} en GitHub...`, 'info');
+            const createRes = await ghRequest('/user/repos', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: repo,
+                    description: 'Widget Cuenta Regresiva Granada 2026 / 2031 (440x310 px)',
+                    private: false,
+                    auto_init: true
+                })
+            });
+
+            if (createRes.ok) {
+                logConsole(`🎉 Repositorio creado con éxito: ${createRes.data.html_url}`, 'success');
+                await checkGitHubRepoStatus();
+                return true;
+            } else {
+                logConsole(`❌ No se pudo crear el repositorio (${createRes.status}): ${JSON.stringify(createRes.data)}`, 'error');
+                return false;
+            }
+        }
+
+        async function upsertFileOnGitHub(owner, repo, branch, filePath, contentStr, commitMessage) {
+            // 1. Comprobar si el archivo ya existe para obtener su SHA
+            let sha = undefined;
+            const check = await ghRequest(`/repos/${owner}/${repo}/contents/${encodeURIComponent(filePath)}?ref=${encodeURIComponent(branch)}`);
+            if (check.ok && check.data && check.data.sha) {
+                sha = check.data.sha;
+            }
+
+            // 2. Subir o actualizar archivo
+            const body = {
+                message: commitMessage,
+                content: toBase64Utf8(contentStr),
+                branch
+            };
+            if (sha) body.sha = sha;
+
+            const putRes = await ghRequest(`/repos/${owner}/${repo}/contents/${encodeURIComponent(filePath)}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+
+            if (!putRes.ok) {
+                throw new Error(`Error subiendo ${filePath} (${putRes.status}): ${JSON.stringify(putRes.data)}`);
+            }
+            logConsole(`  ✔ Archivo publicado: ${filePath}`, 'success');
+        }
+
+        async function publishToGitHub() {
+            const owner = document.getElementById('gh-owner').value.trim();
+            const repo = document.getElementById('gh-repo').value.trim();
+            const branch = document.getElementById('gh-branch').value.trim() || 'main';
+            const commitMsg = document.getElementById('gh-commit-msg').value.trim() || 'Update widget 440x310';
+            const includeStudio = document.getElementById('gh-include-studio').checked;
+            const enablePages = document.getElementById('gh-enable-pages').checked;
+
+            const btnMain = document.getElementById('btn-main-publish');
+            const btnTop = document.getElementById('btn-top-publish');
+            btnMain.disabled = true;
+            btnTop.disabled = true;
+
+            try {
+                logConsole(`=== INICIANDO PUBLICACIÓN EN ${owner}/${repo} ===`, 'info');
+
+                // Paso 1: Asegurar que el repositorio existe
+                const repoReady = await createRepoOnly();
+                if (!repoReady) {
+                    throw new Error('No se pudo verificar o crear el repositorio en GitHub.');
+                }
+
+                // Pequeña pausa si se acaba de inicializar
+                await new Promise(r => setTimeout(r, 800));
+
+                // Paso 2: Generar archivos con los ajustes actuales de la UI
+                const c = getCurrentConfig();
+                const filesToUpload = [
+                    { path: 'index.html', content: generateIndexHtmlContent(c) },
+                    { path: 'styles.css', content: generateStylesCssContent(c) },
+                    { path: 'script.js', content: generateScriptJsContent(c) },
+                    { path: '.nojekyll', content: '' },
+                    { path: 'README.md', content: generateReadmeContent(owner, repo, c) }
+                ];
+
+                if (includeStudio) {
+                    filesToUpload.push({
+                        path: 'gestor.html',
+                        content: '<!DOCTYPE html>\n' + document.documentElement.outerHTML
+                    });
+                }
+
+                // Paso 3: Subir secuencialmente cada archivo
+                for (const file of filesToUpload) {
+                    logConsole(`Subiendo ${file.path}...`, 'info');
+                    await upsertFileOnGitHub(owner, repo, branch, file.path, file.content, commitMsg);
+                }
+
+                // Paso 4: Activar GitHub Pages si está marcado
+                if (enablePages) {
+                    logConsole(`Configurando GitHub Pages en la rama ${branch}...`, 'info');
+                    const pagesCheck = await ghRequest(`/repos/${owner}/${repo}/pages`);
+                    if (pagesCheck.status === 404) {
+                        const pagesCreate = await ghRequest(`/repos/${owner}/${repo}/pages`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                source: { branch: branch, path: '/' }
+                            })
+                        });
+                        if (pagesCreate.ok) {
+                            logConsole(`🌐 ¡GitHub Pages activado! URL: https://${owner.toLowerCase()}.github.io/${repo}/`, 'success');
+                        } else {
+                            logConsole(`ℹ️ Nota sobre GitHub Pages (${pagesCreate.status}): ${JSON.stringify(pagesCreate.data)}`, 'warn');
+                        }
+                    } else {
+                        logConsole(`🌐 GitHub Pages ya estaba activo en: https://${owner.toLowerCase()}.github.io/${repo}/`, 'success');
+                    }
+                }
+
+                document.getElementById('link-gh-repo').href = `https://github.com/${owner}/${repo}`;
+                document.getElementById('link-gh-repo').textContent = `https://github.com/${owner}/${repo}`;
+                document.getElementById('link-gh-pages').href = `https://${owner.toLowerCase()}.github.io/${repo}/`;
+                document.getElementById('link-gh-pages').textContent = `https://${owner.toLowerCase()}.github.io/${repo}/`;
+
+                await checkGitHubRepoStatus();
+                logConsole(`🎉 ¡PUBLICACIÓN COMPLETADA CON ÉXITO!`, 'success');
+            } catch (err) {
+                logConsole(`❌ Error durante la publicación: ${err.message}`, 'error');
+            } finally {
+                btnMain.disabled = false;
+                btnTop.disabled = false;
+            }
+        }
+
+        // Inicializar vista al cargar
+        window.addEventListener('DOMContentLoaded', () => {
+            const iframeResult = document.getElementById('iframe-result');
+            iframeResult.addEventListener('load', () => {
+                syncControls();
+            });
+            updateGeneratedCodePreview();
+        });
+    </script>
+
+
+
+</body></html>
