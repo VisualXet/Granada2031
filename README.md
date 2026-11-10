@@ -1,21 +1,8 @@
-# ⏳ Cuenta Atrás Granada 2026 / 2031 — Widget 440×310 px
+# ⏳ Cuenta Atrás Granada 2026 / 2031 — Pantalla 504×336 px (Anti-Palillería)
 
-Réplica exacta del contador regresivo oficial hacia la resolución de **Granada Capital Europea de la Cultura**, adaptada a un contenedor fijo de **440 × 310 píxeles** (`overflow: hidden`) pensado para ser embebido mediante `<iframe>`.
+Diseño adaptado a la pantalla de fachada de **504 × 336 px** con distribución en **4 cristales** para evitar que la cruceta metálica (X=247px, Y=153px) corte el logotipo, los números o los textos.
 
-## 🔗 Enlaces del Proyecto
-- **Widget en Vivo (GitHub Pages):** https://visualxet.github.io/Granada2031/
-- **Estudio Generador y Comparador:** https://visualxet.github.io/Granada2031/gestor.html
+## 🔗 Enlaces
+- **URL de Proyección (GitHub Pages):** https://visualxet.github.io/Granada2031/
+- **Estudio Generador y Simulador de Fachada:** https://visualxet.github.io/Granada2031/gestor.html
 - **Repositorio:** https://github.com/VisualXet/Granada2031
-
-## 📌 Código para Embeber (`<iframe>`)
-```html
-<iframe 
-  src="https://visualxet.github.io/Granada2031/" 
-  width="440" 
-  height="310" 
-   style="width:440px; height:310px; border:0; overflow:hidden;" 
-  scrolling="no" 
-  loading="lazy" 
-  title="Cuenta Atrás Granada Capital Europea de la Cultura">
-</iframe>
-```
