@@ -1,0 +1,213 @@
+/* ==========================================================================
+   CUENTA ATRÁS GRANADA 2026 / 2031 — WIDGET 440x310 PX
+   Réplica exacta de estilos visuales y animaciones adaptada a 440x310 px
+   ========================================================================== */
+
+:root {
+    --widget-width: 440px;
+    --widget-height: 310px;
+    --pad-x: 10px;
+    --pad-y: 8px;
+
+    /* Paleta de colores y degradado animado original */
+    --bg-color-1: #ff9442;
+    --bg-color-2: #6179b0;
+    --bg-angle: -45deg;
+    --bg-speed: 15s;
+    --text-color: #ffffff;
+
+    /* Escala proporcional milimétrica para viewport 440x310 */
+    --logo-size: 52px;
+    --logo-radius: 11px;
+    --logo-mb: 5px;
+
+    --line1-size: 15px;
+    --line1-mb: 4px;
+
+    --number-size: 44px;
+    --unit-size: 15px;
+    --group-gap: 9px;
+    --item-gap: 4px;
+    --line2-mb: 4px;
+    --line3-mb: 7px;
+
+    --line4-size: 14px;
+    --line4-mb: 4px;
+
+    --line5-size: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: var(--widget-width);
+    height: var(--widget-height);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: transparent;
+}
+
+/* Contenedor Principal estricto 440x310 */
+.countdown-widget {
+    width: var(--widget-width);
+    height: var(--widget-height);
+    overflow: hidden;
+    background: linear-gradient(
+        var(--bg-angle),
+        var(--bg-color-1),
+        var(--bg-color-2),
+        var(--bg-color-1),
+        var(--bg-color-2)
+    );
+    background-size: 400% 400%;
+    animation: gradientBG var(--bg-speed) ease infinite;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--pad-y) var(--pad-x);
+    position: relative;
+}
+
+.countdown-widget ::selection {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.widget-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    z-index: 10;
+}
+
+/* Imagen / Logo superior */
+.widget-logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: cover;
+    border-radius: var(--logo-radius);
+    margin-bottom: var(--logo-mb);
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.22);
+    flex-shrink: 0;
+}
+
+/* Línea 1: Quedan */
+.line-quedan {
+    font-size: var(--line1-size);
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    line-height: 1.15;
+    margin-bottom: var(--line1-mb);
+}
+
+/* Línea 2: Días, horas, minutos (alineados en baseline) */
+.line-dhm {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: var(--group-gap);
+    margin-bottom: var(--line2-mb);
+    font-size: var(--unit-size);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.time-unit-group {
+    display: inline-flex;
+    align-items: baseline;
+    column-gap: var(--item-gap);
+}
+
+/* Línea 3: y XX segundos */
+.line-seconds {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: 6px;
+    margin-bottom: var(--line3-mb);
+    font-size: var(--unit-size);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Contenedor base para mantener la línea base del texto alineada con los números */
+.number-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1;
+    font-size: var(--number-size);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+}
+
+.hidden-placeholder {
+    visibility: hidden;
+    display: inline-block;
+    min-width: 1.2em;
+    text-align: center;
+}
+
+.number-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-up-enter {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.slide-up-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-up-leave-active {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Línea 4 */
+.line-subtitle {
+    font-size: var(--line4-size);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: var(--line4-mb);
+}
+
+/* Línea 5 */
+.line-highlight {
+    font-size: var(--line5-size);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    text-transform: uppercase;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.16));
+}
