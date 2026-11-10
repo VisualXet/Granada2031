@@ -1,40 +1,43 @@
 /* ==========================================================================
-   CUENTA ATRÁS GRANADA 2026 / 2031 — WIDGET 440x310 PX
-   Réplica exacta de estilos visuales y animaciones adaptada a 440x310 px
+   CUENTA ATRÁS GRANADA 2026 / 2031 — WIDGET 504x336 PX
+   Modo de encaje activo: classic-split (Cruceta X:247px, Y:153px)
    ========================================================================== */
 
 :root {
-    --widget-width: 440px;
-    --widget-height: 310px;
+    --widget-width: 504px;
+    --widget-height: 336px;
     --pad-x: 10px;
     --pad-y: 8px;
 
-    /* Paleta de colores y degradado animado original */
+    --mullion-x: 247px;
+    --mullion-y: 153px;
+    --mullion-gap-x: 10px;
+    --mullion-gap-y: 10px;
+
     --bg-color-1: #ff9442;
     --bg-color-2: #6179b0;
     --bg-angle: -45deg;
     --bg-speed: 15s;
     --text-color: #ffffff;
 
-    /* Escala proporcional milimétrica para viewport 440x310 */
-    --logo-size: 52px;
-    --logo-radius: 11px;
-    --logo-mb: 5px;
+    --logo-size: 110px;
+    --logo-radius: 24px;
+    --logo-mb: 6px;
 
-    --line1-size: 15px;
+    --line1-size: 19px;
     --line1-mb: 4px;
 
-    --number-size: 44px;
-    --unit-size: 15px;
-    --group-gap: 9px;
+    --number-size: 39px;
+    --unit-size: 26px;
+    --group-gap: 10px;
     --item-gap: 4px;
     --line2-mb: 4px;
-    --line3-mb: 7px;
+    --line3-mb: 8px;
 
-    --line4-size: 14px;
+    --line4-size: 16px;
     --line4-mb: 4px;
 
-    --line5-size: 18px;
+    --line5-size: 21px;
 }
 
 * {
@@ -56,7 +59,6 @@ body {
     background: transparent;
 }
 
-/* Contenedor Principal estricto 440x310 */
 .countdown-widget {
     width: var(--widget-width);
     height: var(--widget-height);
@@ -80,38 +82,22 @@ body {
     position: relative;
 }
 
-.countdown-widget ::selection {
-    background: rgba(255, 255, 255, 0.3);
-}
-
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-.widget-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 100%;
-    z-index: 10;
-}
-
-/* Imagen / Logo superior */
 .widget-logo {
     width: var(--logo-size);
     height: var(--logo-size);
     object-fit: cover;
     border-radius: var(--logo-radius);
     margin-bottom: var(--logo-mb);
-    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.25);
     flex-shrink: 0;
 }
 
-/* Línea 1: Quedan */
 .line-quedan {
     font-size: var(--line1-size);
     font-weight: 500;
@@ -120,38 +106,18 @@ body {
     margin-bottom: var(--line1-mb);
 }
 
-/* Línea 2: Días, horas, minutos (alineados en baseline) */
-.line-dhm {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: baseline;
-    column-gap: var(--group-gap);
-    margin-bottom: var(--line2-mb);
-    font-size: var(--unit-size);
-    font-weight: 500;
-    white-space: nowrap;
-}
-
 .time-unit-group {
     display: inline-flex;
     align-items: baseline;
     column-gap: var(--item-gap);
-}
-
-/* Línea 3: y XX segundos */
-.line-seconds {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    column-gap: 6px;
-    margin-bottom: var(--line3-mb);
-    font-size: var(--unit-size);
-    font-weight: 500;
     white-space: nowrap;
 }
 
-/* Contenedor base para mantener la línea base del texto alineada con los números */
+.unit-label {
+    font-size: var(--unit-size);
+    font-weight: 500;
+}
+
 .number-container {
     position: relative;
     display: inline-block;
@@ -179,22 +145,10 @@ body {
                 opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.slide-up-enter {
-    transform: translateY(100%);
-    opacity: 0;
-}
+.slide-up-enter { transform: translateY(100%); opacity: 0; }
+.slide-up-enter-active { transform: translateY(0); opacity: 1; }
+.slide-up-leave-active { transform: translateY(-100%); opacity: 0; }
 
-.slide-up-enter-active {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.slide-up-leave-active {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-
-/* Línea 4 */
 .line-subtitle {
     font-size: var(--line4-size);
     font-weight: 500;
@@ -202,12 +156,96 @@ body {
     margin-bottom: var(--line4-mb);
 }
 
-/* Línea 5 */
 .line-highlight {
     font-size: var(--line5-size);
     font-weight: 800;
     letter-spacing: -0.025em;
     line-height: 1.12;
     text-transform: uppercase;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.16));
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18));
+}
+
+.countdown-widget.mode-quadrants {
+    padding: 0;
+}
+
+.quadrants-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns:
+        calc(var(--mullion-x) - (var(--mullion-gap-x) / 2))
+        var(--mullion-gap-x)
+        1fr;
+    grid-template-rows:
+        calc(var(--mullion-y) - (var(--mullion-gap-y) / 2))
+        var(--mullion-gap-y)
+        1fr;
+    z-index: 10;
+}
+
+.glass-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad-y) var(--pad-x);
+    overflow: hidden;
+}
+
+.pane-tl { grid-column: 1; grid-row: 1; }
+.pane-tr { grid-column: 3; grid-row: 1; }
+.pane-bl { grid-column: 1; grid-row: 3; }
+.pane-br { grid-column: 3; grid-row: 3; }
+
+.pane-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.pane-row-inline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: var(--group-gap);
+    row-gap: 2px;
+}
+
+.classic-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.line-dhm {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: var(--group-gap);
+    margin-bottom: var(--line2-mb);
+    font-size: var(--unit-size);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.line-seconds {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: 6px;
+    margin-bottom: var(--line3-mb);
+    font-size: var(--unit-size);
+    font-weight: 500;
+    white-space: nowrap;
 }
