@@ -1,9 +1,9 @@
 /**
  * CUENTA ATRÁS GRANADA 2026 / 2031 — LÓGICA FUNCIONAL DEL CONTADOR
- * Fecha objetivo: 2026-12-03T10:00:00+01:00
+ * Fecha objetivo: 2026-12-03T00:00:00+01:00
  */
 
-let targetDate = new Date('2026-12-03T10:00:00+01:00').getTime();
+let targetDate = new Date('2026-12-03T00:00:00+01:00').getTime();
 
 const state = {
     days: -1,
