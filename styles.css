@@ -1,10 +1,10 @@
 /* ==========================================================================
-   WEB GENERADA: 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)
-   Resolución Total: 1512x336 px (3 pantalla/s)
+   WEB GENERADA: 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)
+   Resolución Total: 504x336 px (1 pantalla/s)
    ========================================================================== */
 
 :root {
-    --widget-width: 1512px;
+    --widget-width: 504px;
     --widget-height: 336px;
     --screen-width: 504px;
     --screen-height: 336px;
@@ -25,21 +25,21 @@
     --bg-speed: 15s;
     --text-color: #ffffff;
 
-    --logo-size: 68px;
-    --logo-radius: 15px;
+    --logo-size: 108px;
+    --logo-radius: 24px;
     --logo-mb: 6px;
 
     --line1-size: 21px;
     --line1-mb: 4px;
 
-    --number-size: 42px;
-    --unit-size: 19px;
+    --number-size: 59px;
+    --unit-size: 21px;
     --group-gap: 10px;
     --item-gap: 4px;
 
-    --line4-size: 17px;
+    --line4-size: 15px;
     --line4-mb: 4px;
-    --line5-size: 22px;
+    --line5-size: 26px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
