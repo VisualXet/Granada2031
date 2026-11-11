@@ -962,11 +962,11 @@
                     </div>
 
                     <div class="preset-grid">
-                        <button class="preset-btn" id="mode-quadrants-z" onclick="setLayoutMode('quadrants-z')">
+                        <button class="preset-btn active" id="mode-quadrants-z" onclick="setLayoutMode('quadrants-z')">
                             <span>✨ 4 Cristales en Z</span>
                             <small>Logo | Días/H / Min/Seg | Texto</small>
                         </button>
-                        <button class="preset-btn active" id="mode-quadrants-counter" onclick="setLayoutMode('quadrants-counter')">
+                        <button class="preset-btn" id="mode-quadrants-counter" onclick="setLayoutMode('quadrants-counter')">
                             <span>🎯 Contador Inferior</span>
                             <small>Arriba Identidad / Abajo Reloj</small>
                         </button>
@@ -998,11 +998,11 @@
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Calle Libre X</span><span class="control-val" id="val-mullionGapX">10px</span></div>
+                            <div class="control-label"><span>Calle Libre X</span><span class="control-val" id="val-mullionGapX">34px</span></div>
                             <input type="range" id="ctrl-mullionGapX" min="10" max="80" value="34" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Calle Libre Y</span><span class="control-val" id="val-mullionGapY">10px</span></div>
+                            <div class="control-label"><span>Calle Libre Y</span><span class="control-val" id="val-mullionGapY">28px</span></div>
                             <input type="range" id="ctrl-mullionGapY" min="10" max="80" value="28" oninput="syncControls()">
                         </div>
                     </div>
@@ -1020,51 +1020,51 @@
                     <div class="control-row">
                         <div class="control-label">
                             <span>Escala Proporcional Global</span>
-                            <span class="control-val" id="val-globalScale">112%</span>
+                            <span class="control-val" id="val-globalScale">100%</span>
                         </div>
                         <input type="range" id="ctrl-globalScale" min="70" max="135" step="1" value="100" oninput="applyGlobalScale(this.value)">
                     </div>
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Logo (px)</span><span class="control-val" id="val-logoSize">110px</span></div>
+                            <div class="control-label"><span>Logo (px)</span><span class="control-val" id="val-logoSize">68px</span></div>
                             <input type="range" id="ctrl-logoSize" min="32" max="110" value="68" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>"Quedan"</span><span class="control-val" id="val-line1Size">12px</span></div>
+                            <div class="control-label"><span>"Quedan"</span><span class="control-val" id="val-line1Size">17px</span></div>
                             <input type="range" id="ctrl-line1Size" min="11" max="30" value="17" oninput="syncControls()">
                         </div>
                     </div>
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Números (00)</span><span class="control-val" id="val-numberSize">54px</span></div>
+                            <div class="control-label"><span>Números (00)</span><span class="control-val" id="val-numberSize">42px</span></div>
                             <input type="range" id="ctrl-numberSize" min="22" max="68" value="42" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Unidades</span><span class="control-val" id="val-unitSize">20px</span></div>
+                            <div class="control-label"><span>Unidades</span><span class="control-val" id="val-unitSize">15px</span></div>
                             <input type="range" id="ctrl-unitSize" min="10" max="26" value="15" oninput="syncControls()">
                         </div>
                     </div>
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Subtítulo L4</span><span class="control-val" id="val-line4Size">17px</span></div>
+                            <div class="control-label"><span>Subtítulo L4</span><span class="control-val" id="val-line4Size">14px</span></div>
                             <input type="range" id="ctrl-line4Size" min="10" max="24" value="14" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Titular L5</span><span class="control-val" id="val-line5Size">23px</span></div>
+                            <div class="control-label"><span>Titular L5</span><span class="control-val" id="val-line5Size">18px</span></div>
                             <input type="range" id="ctrl-line5Size" min="12" max="30" value="18" oninput="syncControls()">
                         </div>
                     </div>
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Padding Y</span><span class="control-val" id="val-padY">16px</span></div>
+                            <div class="control-label"><span>Padding Y</span><span class="control-val" id="val-padY">8px</span></div>
                             <input type="range" id="ctrl-padY" min="0" max="28" value="8" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Padding X</span><span class="control-val" id="val-padX">17px</span></div>
+                            <div class="control-label"><span>Padding X</span><span class="control-val" id="val-padX">10px</span></div>
                             <input type="range" id="ctrl-padX" min="0" max="28" value="10" oninput="syncControls()">
                         </div>
                     </div>
@@ -1135,12 +1135,12 @@
 
                                     <!-- Superposición de la Palillería de los Cristales (No se exporta al publicar, es guía visual) -->
                                     <div class="mullion-overlay" id="mullion-overlay">
-                                        <div class="mullion-safe-v" id="overlay-safe-v" style="left: 247px; width: 10px;"></div>
-                                        <div class="mullion-safe-h" id="overlay-safe-h" style="top: 153px; height: 10px;"></div>
+                                        <div class="mullion-safe-v" id="overlay-safe-v" style="left: 247px; width: 34px;"></div>
+                                        <div class="mullion-safe-h" id="overlay-safe-h" style="top: 153px; height: 28px;"></div>
                                         <div class="mullion-bar-v" id="overlay-bar-v" style="left: 247px;"></div>
                                         <div class="mullion-bar-h" id="overlay-bar-h" style="top: 153px;"></div>
-                                        <div class="mullion-tag" id="overlay-tag-v" style="top: 6px; left: 247px; transform: translateX(-50%);">Hierro X: 247px</div>
-                                        <div class="mullion-tag" id="overlay-tag-h" style="left: 6px; top: 153px; transform: translateY(-50%);">Hierro Y: 153px</div>
+                                        <div class="mullion-tag" id="overlay-tag-v" style="top:6px; left:247px; transform:translateX(-50%);">Hierro X: 247px</div>
+                                        <div class="mullion-tag" id="overlay-tag-h" style="left:6px; top:153px; transform:translateY(-50%);">Hierro Y: 153px</div>
                                     </div>
                                 </div>
                             </div>
@@ -1148,9 +1148,9 @@
                             <div class="diagnostics-bar">
                                 <div>
                                     <strong>Estado Anti-Palillería:</strong>
-                                    <span class="badge badge-orange" id="diag-overflow-badge">⚠️ Ajusta ligeramente el tamaño de fuente para no rebasar el cristal</span>
+                                    <span class="badge badge-green" id="diag-overflow-badge">✅ 4 Cristales Libres (0% Corte de Letras/Logo)</span>
                                 </div>
-                                <div style="color:var(--text-muted); font-family:'JetBrains Mono', monospace; font-size:11px;" id="diag-metrics">Cristales útiles: Sup-Izq 242×148 | Sup-Der 252×148 | Inf-Izq 242×178 | Inf-Der 252×178 px</div>
+                                <div style="color:var(--text-muted); font-family:'JetBrains Mono', monospace; font-size:11px;" id="diag-metrics">Cristales útiles: Sup-Izq 230×139 | Sup-Der 240×139 | Inf-Izq 230×169 | Inf-Der 240×169 px</div>
                             </div>
                         </div>
                     </div>
@@ -1174,13 +1174,13 @@
                             </div>
                         </div>
 
-                        <div class="card-body-canvas" id="right-canvas-facade" style="display: flex;">
+                        <div class="card-body-canvas" id="right-canvas-facade">
                             <div class="facade-simulator-stage" id="facade-stage">
                                 <img src="Pantalla/WhatsApp Image 2026-11-10 at 14.43.09.jpeg" alt="Fachada Real" class="facade-photo-bg">
 
                                 <!-- Pantalla Izquierda (opcional) -->
-                                <div class="facade-screen-slot slot-left" id="sim-slot-left" style="display: block;">
-                                    <div class="facade-screen-scaler" id="sim-scaler-left" style="width: 504px; height: 336px; transform: scale(0.498016, 0.407738);">
+                                <div class="facade-screen-slot slot-left" id="sim-slot-left" style="display:none;">
+                                    <div class="facade-screen-scaler" id="sim-scaler-left">
                                         <iframe id="iframe-sim-left" src="index.html" scrolling="no"></iframe>
                                     </div>
                                     <div class="facade-glass-glare"></div>
@@ -1189,7 +1189,7 @@
                                 </div>
 
                                 <!-- Pantalla Central (Principal 504x336) -->
-                                <div class="facade-screen-slot" id="sim-slot-center" style="display: block;">
+                                <div class="facade-screen-slot" id="sim-slot-center">
                                     <div class="facade-screen-scaler" id="sim-scaler-center" style="width: 504px; height: 336px; transform: scale(0.468254, 0.404762);">
                                         <iframe id="iframe-sim-center" src="index.html" scrolling="no"></iframe>
                                     </div>
@@ -1200,8 +1200,8 @@
                                 </div>
 
                                 <!-- Pantalla Derecha (opcional) -->
-                                <div class="facade-screen-slot slot-right" id="sim-slot-right" style="display: block;">
-                                    <div class="facade-screen-scaler" id="sim-scaler-right" style="width: 504px; height: 336px; transform: scale(0.462302, 0.407738);">
+                                <div class="facade-screen-slot slot-right" id="sim-slot-right" style="display:none;">
+                                    <div class="facade-screen-scaler" id="sim-scaler-right">
                                         <iframe id="iframe-sim-right" src="index.html" scrolling="no"></iframe>
                                     </div>
                                     <div class="facade-glass-glare"></div>
@@ -1250,19 +1250,19 @@
                         </div>
                         <pre id="code-styles-css">/* ==========================================================================
    CUENTA ATRÁS GRANADA 2026 / 2031 — WIDGET 504x336 PX
-   Modo de encaje activo: quadrants-counter (Cruceta X:247px, Y:153px)
+   Modo de encaje activo: quadrants-z (Cruceta X:247px, Y:153px)
    ========================================================================== */
 
 :root {
     --widget-width: 504px;
     --widget-height: 336px;
-    --pad-x: 17px;
-    --pad-y: 16px;
+    --pad-x: 10px;
+    --pad-y: 8px;
 
     --mullion-x: 247px;
     --mullion-y: 153px;
-    --mullion-gap-x: 10px;
-    --mullion-gap-y: 10px;
+    --mullion-gap-x: 34px;
+    --mullion-gap-y: 28px;
 
     --bg-color-1: #ff9442;
     --bg-color-2: #6179b0;
@@ -1270,24 +1270,24 @@
     --bg-speed: 15s;
     --text-color: #ffffff;
 
-    --logo-size: 110px;
-    --logo-radius: 24px;
+    --logo-size: 68px;
+    --logo-radius: 15px;
     --logo-mb: 6px;
 
-    --line1-size: 12px;
+    --line1-size: 17px;
     --line1-mb: 4px;
 
-    --number-size: 54px;
-    --unit-size: 20px;
+    --number-size: 42px;
+    --unit-size: 15px;
     --group-gap: 10px;
     --item-gap: 4px;
     --line2-mb: 4px;
     --line3-mb: 8px;
 
-    --line4-size: 17px;
+    --line4-size: 14px;
     --line4-mb: 4px;
 
-    --line5-size: 23px;
+    --line5-size: 18px;
 }
 
 * {
@@ -1524,15 +1524,14 @@ body {
     &lt;!-- Contenedor Principal de dimensiones exactas: 504x336 px --&gt;
     &lt;main class="countdown-widget mode-quadrants" id="widget-root" style="width: 504px; height: 336px; overflow: hidden;"&gt;
         &lt;div class="quadrants-grid" id="layout-container" aria-live="polite"&gt;
+            &lt;!-- CRISTAL 1 (Superior Izquierdo): Logo + Quedan --&gt;
             &lt;div class="glass-pane pane-tl"&gt;
                 &lt;img id="widget-logo" src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo Granada 2026" class="widget-logo"&gt;
-            &lt;/div&gt;
-            &lt;div class="glass-pane pane-tr"&gt;
-                &lt;p id="text-line4" class="line-subtitle"&gt;para saber si Granada será&lt;/p&gt;
-                &lt;p id="text-line5" class="line-highlight"&gt;Capital Europea de la Cultura&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div class="glass-pane pane-bl"&gt;
                 &lt;h1 id="text-line1" class="line-quedan"&gt;Quedan&lt;/h1&gt;
+            &lt;/div&gt;
+
+            &lt;!-- CRISTAL 2 (Superior Derecho): Días y Horas --&gt;
+            &lt;div class="glass-pane pane-tr"&gt;
                 &lt;div class="pane-stack"&gt;
                     
                     &lt;div class="time-unit-group" id="block-days"&gt;
@@ -1554,8 +1553,10 @@ body {
                     &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
-            &lt;div class="glass-pane pane-br"&gt;
-                &lt;div class="pane-stack" style="margin-top: 14px;"&gt;
+
+            &lt;!-- CRISTAL 3 (Inferior Izquierdo): Minutos y Segundos --&gt;
+            &lt;div class="glass-pane pane-bl"&gt;
+                &lt;div class="pane-stack"&gt;
                     
                     &lt;div class="time-unit-group" id="block-minutes"&gt;
                         
@@ -1575,6 +1576,12 @@ body {
                         &lt;span class="unit-label" id="label-seconds"&gt;segundos&lt;/span&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- CRISTAL 4 (Inferior Derecho): Mensaje Final --&gt;
+            &lt;div class="glass-pane pane-br"&gt;
+                &lt;p id="text-line4" class="line-subtitle"&gt;para saber si Granada será&lt;/p&gt;
+                &lt;p id="text-line5" class="line-highlight"&gt;Capital Europea de la Cultura&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/main&gt;
@@ -1662,7 +1669,7 @@ body {
                             <div class="log-entry log-info">[Sistema] Estudio Anti-Palillería 504×336 inicializado.</div>
                             <div class="log-entry log-info">[Seguridad] Credenciales de VisualXet cargadas desde Navidad2026.</div>
                             <div class="log-entry log-warn">[Modo Manual] Nada se publica sin tu orden. Ajusta el encaje y pulsa Publicar cuando quieras.</div>
-                        <div class="log-entry log-success">[16:29:49] ✅ Archivos guardados con resolución 504x336 y modo classic-split.</div><div class="log-entry log-info">[16:29:56] === INICIANDO PUBLICACIÓN EN VisualXet/Granada2031 ===</div><div class="log-entry log-info">[16:29:56] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[16:29:57] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-success">[16:29:57] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div><div class="log-entry log-info">[16:29:58] Subiendo index.html...</div><div class="log-entry log-success">[16:29:59]   ✔ Archivo publicado: index.html</div><div class="log-entry log-info">[16:29:59] Subiendo styles.css...</div><div class="log-entry log-success">[16:30:01]   ✔ Archivo publicado: styles.css</div><div class="log-entry log-info">[16:30:01] Subiendo script.js...</div><div class="log-entry log-success">[16:30:02]   ✔ Archivo publicado: script.js</div><div class="log-entry log-info">[16:30:02] Subiendo .nojekyll...</div><div class="log-entry log-success">[16:30:04]   ✔ Archivo publicado: .nojekyll</div><div class="log-entry log-info">[16:30:04] Subiendo README.md...</div><div class="log-entry log-success">[16:30:05]   ✔ Archivo publicado: README.md</div><div class="log-entry log-info">[16:30:05] Subiendo gestor.html...</div><div class="log-entry log-success">[16:30:07]   ✔ Archivo publicado: gestor.html</div><div class="log-entry log-info">[16:30:07] Configurando GitHub Pages en la rama main...</div><div class="log-entry log-success">[16:30:07] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div><div class="log-entry log-info">[16:30:07] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[16:30:07] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-success">[16:30:08] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div><div class="log-entry log-success">[16:30:08] 🎉 ¡PUBLICACIÓN COMPLETADA CON ÉXITO!</div><div class="log-entry log-success">[16:36:21] ✅ Archivos guardados con resolución 504x336 y modo quadrants-counter.</div><div class="log-entry log-info">[16:37:20] === INICIANDO PUBLICACIÓN EN VisualXet/Granada2031 ===</div><div class="log-entry log-info">[16:37:20] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[16:37:21] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-success">[16:37:22] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div></div>
+                        <div class="log-entry log-success">[11:11:20] ✅ Archivos guardados con resolución 504x336 y modo quadrants-z.</div><div class="log-entry log-info">[11:11:41] === INICIANDO PUBLICACIÓN EN VisualXet/Granada2031 ===</div><div class="log-entry log-info">[11:11:41] Consultando estado del repositorio VisualXet/Granada2031...</div><div class="log-entry log-success">[11:11:42] ✅ El repositorio VisualXet/Granada2031 existe en GitHub (https://github.com/VisualXet/Granada2031).</div><div class="log-entry log-success">[11:11:42] 🌐 GitHub Pages activo en: https://visualxet.github.io/Granada2031/</div></div>
                     </div>
                 </div>
             </section>
