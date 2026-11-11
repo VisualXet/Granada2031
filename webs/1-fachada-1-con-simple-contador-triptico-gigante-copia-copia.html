@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- GRANADA2031_CONFIG:{"id":"web-1794394671932","name":"1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)","screenCount":1,"screenWidth":504,"screenHeight":336,"totalWidth":504,"totalHeight":336,"screenLeftMode":"quadrants-z","screenCenterMode":"quadrants-z","screenRightMode":"quadrants-z","mullionXLeft":237,"mullionX":255,"mullionXRight":227,"mullionY":165,"mullionGapX":34,"mullionGapY":28,"padY":8,"padX":10,"logoSize":108,"line1Size":21,"numberSize":59,"unitSize":21,"line4Size":15,"line5Size":26,"color1":"#ff9442","color2":"#6179b0","textColor":"#ffffff","bgSpeed":15,"bgAngle":-45,"targetDateIso":"2026-12-03T00:00:00+01:00","line1":"Quedan","line4":"para saber si Granada será","line5":"Capital Europea de la Cultura","logoUrl":"https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg"} -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=504, initial-scale=1.0">
+    <title>1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
+    <style>
+/* ==========================================================================
+   WEB GENERADA: 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)
+   Resolución Total: 504x336 px (1 pantalla/s)
+   ========================================================================== */
+
+:root {
+    --widget-width: 504px;
+    --widget-height: 336px;
+    --screen-width: 504px;
+    --screen-height: 336px;
+    --pad-x: 10px;
+    --pad-y: 8px;
+
+    --mullion-x-left: 237px;
+    --mullion-x-center: 255px;
+    --mullion-x-right: 227px;
+    --mullion-x: 255px;
+    --mullion-y: 165px;
+    --mullion-gap-x: 34px;
+    --mullion-gap-y: 28px;
+
+    --bg-color-1: #ff9442;
+    --bg-color-2: #6179b0;
+    --bg-angle: -45deg;
+    --bg-speed: 15s;
+    --text-color: #ffffff;
+
+    --logo-size: 108px;
+    --logo-radius: 24px;
+    --logo-mb: 6px;
+
+    --line1-size: 21px;
+    --line1-mb: 4px;
+
+    --number-size: 59px;
+    --unit-size: 21px;
+    --group-gap: 10px;
+    --item-gap: 4px;
+
+    --line4-size: 15px;
+    --line4-mb: 4px;
+    --line5-size: 26px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    width: var(--widget-width);
+    height: var(--widget-height);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: transparent;
+}
+
+.countdown-widget {
+    width: var(--widget-width);
+    height: var(--widget-height);
+    overflow: hidden;
+    background: linear-gradient(var(--bg-angle), var(--bg-color-1), var(--bg-color-2), var(--bg-color-1), var(--bg-color-2));
+    background-size: 400% 400%;
+    animation: gradientBG var(--bg-speed) ease infinite;
+    color: var(--text-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.three-screens-stage {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    z-index: 10;
+}
+
+.screen-unit {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quadrants-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: calc(var(--local-mullion-x, var(--mullion-x)) - (var(--mullion-gap-x) / 2)) var(--mullion-gap-x) 1fr;
+    grid-template-rows: calc(var(--mullion-y) - (var(--mullion-gap-y) / 2)) var(--mullion-gap-y) 1fr;
+    z-index: 10;
+}
+
+.screen-left .quadrants-grid { --local-mullion-x: var(--mullion-x-left); }
+.screen-center .quadrants-grid { --local-mullion-x: var(--mullion-x-center); }
+.screen-right .quadrants-grid { --local-mullion-x: var(--mullion-x-right); }
+
+.glass-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad-y) var(--pad-x);
+    overflow: hidden;
+}
+
+.pane-tl { grid-column: 1; grid-row: 1; }
+.pane-tr { grid-column: 3; grid-row: 1; }
+.pane-bl { grid-column: 1; grid-row: 3; }
+.pane-br { grid-column: 3; grid-row: 3; }
+
+.pane-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.widget-logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: cover;
+    border-radius: var(--logo-radius);
+    margin-bottom: var(--logo-mb);
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.25);
+}
+
+.line-quedan {
+    font-size: var(--line1-size);
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    line-height: 1.15;
+    margin-bottom: var(--line1-mb);
+}
+
+.time-unit-group {
+    display: inline-flex;
+    align-items: baseline;
+    column-gap: var(--item-gap);
+    white-space: nowrap;
+}
+
+.unit-label { font-size: var(--unit-size); font-weight: 500; }
+
+.number-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1;
+    font-size: var(--number-size);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+}
+
+.hidden-placeholder { visibility: hidden; display: inline-block; min-width: 1.2em; text-align: center; }
+
+.number-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-up-enter { transform: translateY(100%); opacity: 0; }
+.slide-up-enter-active { transform: translateY(0); opacity: 1; }
+.slide-up-leave-active { transform: translateY(-100%); opacity: 0; }
+
+.line-subtitle { font-size: var(--line4-size); font-weight: 500; line-height: 1.2; margin-bottom: var(--line4-mb); }
+.line-highlight {
+    font-size: var(--line5-size);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    text-transform: uppercase;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18));
+}
+.classic-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: var(--pad-y) var(--pad-x);
+}
+    </style>
+</head>
+<body>
+    <main class="countdown-widget" id="widget-root" style="width: 504px; height: 336px; overflow: hidden;">
+        <div class="screen-unit screen-center">
+            <div class="quadrants-grid">
+                <div class="glass-pane pane-tl">
+                    <img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="widget-logo">
+                    <h1 class="line-quedan">Quedan</h1>
+                </div>
+                <div class="glass-pane pane-tr">
+                    <div class="pane-stack">
+                        <div class="time-unit-group">
+                        
+                        <div class="number-container" data-unit="days">
+                            <span class="hidden-placeholder">00</span>
+                            <div class="number-slide">00</div>
+                        </div>
+                        <span class="unit-label">días,</span>
+                   </div>
+                        <div class="time-unit-group">
+                        
+                        <div class="number-container" data-unit="hours">
+                            <span class="hidden-placeholder">00</span>
+                            <div class="number-slide">00</div>
+                        </div>
+                        <span class="unit-label">horas,</span>
+                   </div>
+                    </div>
+                </div>
+                <div class="glass-pane pane-bl">
+                    <div class="pane-stack">
+                        <div class="time-unit-group">
+                        
+                        <div class="number-container" data-unit="minutes">
+                            <span class="hidden-placeholder">00</span>
+                            <div class="number-slide">00</div>
+                        </div>
+                        <span class="unit-label">minutos</span>
+                   </div>
+                        <div class="time-unit-group">
+                        <span class="unit-label">y</span>
+                        <div class="number-container" data-unit="seconds">
+                            <span class="hidden-placeholder">00</span>
+                            <div class="number-slide">00</div>
+                        </div>
+                        <span class="unit-label">segundos</span>
+                   </div>
+                    </div>
+                </div>
+                <div class="glass-pane pane-br">
+                    <p class="line-subtitle">para saber si Granada será</p>
+                    <p class="line-highlight">Capital Europea de la Cultura</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+/**
+ * CUENTA ATRÁS GRANADA 2026 / 2031 — 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)
+ * Fecha objetivo configurada: 2026-12-03T00:00:00+01:00
+ */
+
+const targetDate = new Date('2026-12-03T00:00:00+01:00').getTime();
+const state = { days: -1, hours: -1, minutes: -1, seconds: -1 };
+
+function animateUnitContainers(unitName, newValue) {
+    const formattedValue = newValue.toString().padStart(2, '0');
+    document.querySelectorAll('[data-unit="' + unitName + '"]').forEach((container) => {
+        const placeholder = container.querySelector('.hidden-placeholder');
+        const currentElement = container.querySelector('.number-slide:not(.slide-up-leave-active)');
+        if (currentElement && currentElement.innerText === formattedValue) return;
+        if (placeholder) placeholder.innerText = formattedValue;
+
+        const newElement = document.createElement('div');
+        newElement.className = 'number-slide slide-up-enter';
+        newElement.innerText = formattedValue;
+        container.appendChild(newElement);
+
+        void newElement.offsetWidth;
+        newElement.classList.remove('slide-up-enter');
+        newElement.classList.add('slide-up-enter-active');
+
+        if (currentElement) {
+            currentElement.classList.add('slide-up-leave-active');
+            setTimeout(() => {
+                if (currentElement.parentNode === container) container.removeChild(currentElement);
+                newElement.classList.remove('slide-up-enter-active');
+            }, 600);
+        } else {
+            newElement.classList.remove('slide-up-enter-active');
+        }
+    });
+}
+
+function updateCountdown() {
+    const distance = targetDate - Date.now();
+    if (distance < 0 || Number.isNaN(distance)) {
+        ['days', 'hours', 'minutes', 'seconds'].forEach(u => animateUnitContainers(u, 0));
+        return;
+    }
+    const days = Math.floor(distance / 86400000);
+    const hours = Math.floor((distance % 86400000) / 3600000);
+    const minutes = Math.floor((distance % 3600000) / 60000);
+    const seconds = Math.floor((distance % 60000) / 1000);
+
+    if (state.days !== days) { animateUnitContainers('days', days); state.days = days; }
+    if (state.hours !== hours) { animateUnitContainers('hours', hours); state.hours = hours; }
+    if (state.minutes !== minutes) { animateUnitContainers('minutes', minutes); state.minutes = minutes; }
+    if (state.seconds !== seconds) { animateUnitContainers('seconds', seconds); state.seconds = seconds; }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
