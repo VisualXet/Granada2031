@@ -744,9 +744,9 @@
             <div class="brand-title">
                 <h1>
                     Estudio Multi-Web &amp; 3 Pantallas Anti-Palillería
-                    <span class="badge badge-orange" id="top-res-badge">1512 × 336 px</span>
+                    <span class="badge badge-orange" id="top-res-badge">504 × 336 px</span>
                 </h1>
-                <p id="top-countdown-live">Tiempo restante hacia fecha objetivo: 21 días, 12 horas, 4 minutos y 7 segundos</p>
+                <p id="top-countdown-live">Tiempo restante hacia fecha objetivo: 21 días, 12 horas, 2 minutos y 1 segundos</p>
             </div>
         </div>
 
@@ -755,7 +755,7 @@
                 🏛️ Visualizador &amp; 3 Pantallas
             </button>
             <button class="nav-tab" onclick="switchView('library', this)">
-                🗂️ Mis Webs Guardadas (<span id="saved-count-badge">5</span>)
+                🗂️ Mis Webs Guardadas (<span id="saved-count-badge">6</span>)
             </button>
             <button class="nav-tab" onclick="switchView('code', this)">
                 💻 Código Generado
@@ -800,7 +800,7 @@
                     </button>
                 </div>
                 <div class="active-web-row">
-                    <select class="text-input" id="quick-load-select" onchange="loadProfileById(this.value)" style="font-size:11.5px;"><option value="web-1794394002008" selected="">📂 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)</option><option value="preset-3p-triptych">📂 1. Fachada 3 con info central — Tríptico Gigante</option><option value="preset-3p-center">📂 2. Fachada 3 Pantallas (1512×336) — Central Contador + Fondos</option><option value="preset-1p-504">📂 3. Pantalla Única (504×336) — 4 Cristales en Z Anti-Palillería</option><option value="preset-1p-440">📂 4. Widget Web Estándar (440×310) — Centrado sin Palillería</option></select>
+                    <select class="text-input" id="quick-load-select" onchange="loadProfileById(this.value)" style="font-size:11.5px;"><option value="web-1794394671932" selected="">📂 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)</option><option value="web-1794394002008">📂 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)</option><option value="preset-3p-triptych">📂 1. Fachada 3 con info central — Tríptico Gigante</option><option value="preset-3p-center">📂 2. Fachada 3 Pantallas (1512×336) — Central Contador + Fondos</option><option value="preset-1p-504">📂 3. Pantalla Única (504×336) — 4 Cristales en Z Anti-Palillería</option><option value="preset-1p-440">📂 4. Widget Web Estándar (440×310) — Centrado sin Palillería</option></select>
                 </div>
             </div>
 
@@ -813,18 +813,18 @@
                     </div>
 
                     <div class="preset-grid">
-                        <button class="preset-btn active" id="btn-sc3" onclick="setScreenCountMode(3)">
+                        <button class="preset-btn" id="btn-sc3" onclick="setScreenCountMode(3)">
                             <span>🖥️🖥️🖥️ Web de 3 Pantallas</span>
                             <small>Genera las 3 pantallas unidas</small>
                         </button>
-                        <button class="preset-btn" id="btn-sc1" onclick="setScreenCountMode(1)">
+                        <button class="preset-btn active" id="btn-sc1" onclick="setScreenCountMode(1)">
                             <span>🖥️ Web de 1 Pantalla</span>
                             <small>Genera solo 1 pantalla/widget</small>
                         </button>
                     </div>
 
                     <!-- Presets rápidos de cómo repartir las 3 pantallas -->
-                    <div id="three-screens-config-box" style="display: flex; flex-direction: column; gap: 8px; margin-top: 2px;">
+                    <div id="three-screens-config-box" style="display: none; flex-direction: column; gap: 8px; margin-top: 2px;">
                         <div class="control-label"><span>Presets Rápidos de 3 Pantallas:</span></div>
                         <div class="preset-grid">
                             <button class="preset-btn" onclick="applyThreeScreenPreset('triptych')">
@@ -879,7 +879,7 @@
                     </div>
 
                     <!-- Selector cuando es 1 sola pantalla -->
-                    <div id="one-screen-config-box" style="display: none; flex-direction: column; gap: 6px;">
+                    <div id="one-screen-config-box" style="display: flex; flex-direction: column; gap: 6px;">
                         <div class="control-label"><span>Distribución de la Pantalla Única:</span></div>
                         <select class="text-input" id="ctrl-singleScreenMode" onchange="document.getElementById('ctrl-screenCenterMode').value=this.value; syncControls()">
                             <option value="quadrants-z">✨ 4 Cristales en Z (Anti-Palillería)</option>
@@ -899,7 +899,7 @@
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span id="lbl-width-type">Ancho de CADA Pantalla</span></div>
+                            <div class="control-label"><span id="lbl-width-type">Ancho de la Web</span></div>
                             <div class="num-input-wrap">
                                 <input type="number" id="num-screenWidth" min="200" max="2560" value="504" oninput="syncControls()">
                                 <span>px</span>
@@ -951,7 +951,7 @@
                 <div class="control-section highlight-section">
                     <div class="section-title">
                         <span>⏳ 3. Fecha y Hora Objetivo</span>
-                        <span class="badge badge-green" id="live-days-chip">21d 12h 04m 07s</span>
+                        <span class="badge badge-green" id="live-days-chip">21d 12h 02m 01s</span>
                     </div>
 
                     <div class="control-row">
@@ -1013,11 +1013,11 @@
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Tamaño Logo</span><span class="control-val" id="val-logoSize">68px</span></div>
+                            <div class="control-label"><span>Tamaño Logo</span><span class="control-val" id="val-logoSize">108px</span></div>
                             <input type="range" id="ctrl-logoSize" min="30" max="130" value="78" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Números (00)</span><span class="control-val" id="val-numberSize">42px</span></div>
+                            <div class="control-label"><span>Números (00)</span><span class="control-val" id="val-numberSize">59px</span></div>
                             <input type="range" id="ctrl-numberSize" min="20" max="84" value="50" oninput="syncControls()">
                         </div>
                     </div>
@@ -1028,18 +1028,18 @@
                             <input type="range" id="ctrl-line1Size" min="10" max="36" value="20" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Unidades (días...)</span><span class="control-val" id="val-unitSize">19px</span></div>
+                            <div class="control-label"><span>Unidades (días...)</span><span class="control-val" id="val-unitSize">21px</span></div>
                             <input type="range" id="ctrl-unitSize" min="10" max="30" value="16" oninput="syncControls()">
                         </div>
                     </div>
 
                     <div class="input-grid-2">
                         <div class="control-row">
-                            <div class="control-label"><span>Subtítulo L4</span><span class="control-val" id="val-line4Size">17px</span></div>
+                            <div class="control-label"><span>Subtítulo L4</span><span class="control-val" id="val-line4Size">15px</span></div>
                             <input type="range" id="ctrl-line4Size" min="10" max="30" value="16" oninput="syncControls()">
                         </div>
                         <div class="control-row">
-                            <div class="control-label"><span>Titular L5</span><span class="control-val" id="val-line5Size">22px</span></div>
+                            <div class="control-label"><span>Titular L5</span><span class="control-val" id="val-line5Size">26px</span></div>
                             <input type="range" id="ctrl-line5Size" min="12" max="38" value="21" oninput="syncControls()">
                         </div>
                     </div>
@@ -1066,7 +1066,7 @@
                     <div class="card-header">
                         <div class="card-title">
                             🎯 Lienzo Exacto de la Web que se va a Generar
-                            <span class="badge badge-orange" id="canvas-res-badge">1512 × 336 px (3 Pantallas de 504×336)</span>
+                            <span class="badge badge-orange" id="canvas-res-badge">504 × 336 px (1 Pantalla)</span>
                         </div>
                         <div style="display:flex; align-items:center; gap:8px;">
                             <span style="font-size:11.5px; color:var(--text-muted);">Zoom Lienzo:</span>
@@ -1080,10 +1080,8 @@
                     </div>
 
                     <div class="card-body-canvas" id="main-canvas-wrapper" style="min-height: 313px;">
-                        <div class="live-stage-outer" id="live-stage-outer" style="width: 1512px; height: 336px; transform: scale(0.8);">
-                            <div class="live-widget-dom" id="live-widget-dom" style="--w-c1: #ff9442; --w-c2: #6179b0; --w-text: #ffffff; --w-speed: 15s; --w-angle: -45deg; --w-logo: 68px; --w-l1: 21px; --w-num: 42px; --w-unit: 19px; --w-l4: 17px; --w-l5: 22px; --my: 165px; --mgx: 34px; --mgy: 28px;">
-                        <div class="live-three-grid">
-                            <div class="live-screen-unit" style="--mx:237px;"><div class="live-quadrants-grid">
+                        <div class="live-stage-outer" id="live-stage-outer" style="width: 504px; height: 336px; transform: scale(0.8);">
+                            <div class="live-widget-dom" id="live-widget-dom" style="--w-c1: #ff9442; --w-c2: #6179b0; --w-text: #ffffff; --w-speed: 15s; --w-angle: -45deg; --w-logo: 108px; --w-l1: 21px; --w-num: 59px; --w-unit: 21px; --w-l4: 15px; --w-l5: 26px; --my: 165px; --mgx: 34px; --mgy: 28px;"><div class="live-screen-unit" style="--mx:255px;"><div class="live-quadrants-grid">
                 <div class="live-glass-pane lp-tl">
                     <img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="lp-logo">
                     <h1 class="lp-quedan">Quedan</h1>
@@ -1113,17 +1111,17 @@
                         <div class="lp-unit-group">
                         
                         <div class="lp-num-box" data-live-unit="minutes">
-                            <span class="lp-placeholder">04</span>
+                            <span class="lp-placeholder">02</span>
                             
-                        <div class="lp-slide">04</div></div>
+                        <div class="lp-slide">02</div></div>
                         <span class="lp-unit-label">minutos</span>
                    </div>
                         <div class="lp-unit-group">
                         <span class="lp-unit-label">y</span>
                         <div class="lp-num-box" data-live-unit="seconds">
-                            <span class="lp-placeholder">07</span>
+                            <span class="lp-placeholder">01</span>
                             
-                        <div class="lp-slide">07</div></div>
+                        <div class="lp-slide">01</div></div>
                         <span class="lp-unit-label">segundos</span>
                    </div>
                     </div>
@@ -1132,122 +1130,11 @@
                     <p class="lp-sub">para saber si Granada será</p>
                     <p class="lp-high">Capital Europea de la Cultura</p>
                 </div>
-            </div></div>
-                            <div class="live-screen-unit" style="--mx:255px;"><div class="live-quadrants-grid">
-                <div class="live-glass-pane lp-tl">
-                    <img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="lp-logo">
-                    <h1 class="lp-quedan">Quedan</h1>
-                </div>
-                <div class="live-glass-pane lp-tr">
-                    <div class="lp-stack">
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="days">
-                            <span class="lp-placeholder">21</span>
-                            
-                        <div class="lp-slide">21</div></div>
-                        <span class="lp-unit-label">días,</span>
-                   </div>
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="hours">
-                            <span class="lp-placeholder">12</span>
-                            
-                        <div class="lp-slide">12</div></div>
-                        <span class="lp-unit-label">horas,</span>
-                   </div>
-                    </div>
-                </div>
-                <div class="live-glass-pane lp-bl">
-                    <div class="lp-stack">
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="minutes">
-                            <span class="lp-placeholder">04</span>
-                            
-                        <div class="lp-slide">04</div></div>
-                        <span class="lp-unit-label">minutos</span>
-                   </div>
-                        <div class="lp-unit-group">
-                        <span class="lp-unit-label">y</span>
-                        <div class="lp-num-box" data-live-unit="seconds">
-                            <span class="lp-placeholder">07</span>
-                            
-                        <div class="lp-slide">07</div></div>
-                        <span class="lp-unit-label">segundos</span>
-                   </div>
-                    </div>
-                </div>
-                <div class="live-glass-pane lp-br">
-                    <p class="lp-sub">para saber si Granada será</p>
-                    <p class="lp-high">Capital Europea de la Cultura</p>
-                </div>
-            </div></div>
-                            <div class="live-screen-unit" style="--mx:227px;"><div class="live-quadrants-grid">
-                <div class="live-glass-pane lp-tl">
-                    <img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="lp-logo">
-                    <h1 class="lp-quedan">Quedan</h1>
-                </div>
-                <div class="live-glass-pane lp-tr">
-                    <div class="lp-stack">
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="days">
-                            <span class="lp-placeholder">21</span>
-                            
-                        <div class="lp-slide">21</div></div>
-                        <span class="lp-unit-label">días,</span>
-                   </div>
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="hours">
-                            <span class="lp-placeholder">12</span>
-                            
-                        <div class="lp-slide">12</div></div>
-                        <span class="lp-unit-label">horas,</span>
-                   </div>
-                    </div>
-                </div>
-                <div class="live-glass-pane lp-bl">
-                    <div class="lp-stack">
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="minutes">
-                            <span class="lp-placeholder">04</span>
-                            
-                        <div class="lp-slide">04</div></div>
-                        <span class="lp-unit-label">minutos</span>
-                   </div>
-                        <div class="lp-unit-group">
-                        <span class="lp-unit-label">y</span>
-                        <div class="lp-num-box" data-live-unit="seconds">
-                            <span class="lp-placeholder">07</span>
-                            
-                        <div class="lp-slide">07</div></div>
-                        <span class="lp-unit-label">segundos</span>
-                   </div>
-                    </div>
-                </div>
-                <div class="live-glass-pane lp-br">
-                    <p class="lp-sub">para saber si Granada será</p>
-                    <p class="lp-high">Capital Europea de la Cultura</p>
-                </div>
-            </div></div>
-                        </div></div>
+            </div></div></div>
                             <div id="live-guides-container">
                     <div class="guide-mullion-layer">
-                        <div class="screen-sep-line" style="left:504px;"></div>
-                        <div class="screen-sep-line" style="left:1008px;"></div>
-                        
-                            <div class="guide-safe-v" style="left:237px; width:34px;"></div>
-                            <div class="guide-bar-v" style="left:237px;"></div>
-                        
-                            <div class="guide-safe-v" style="left:759px; width:34px;"></div>
-                            <div class="guide-bar-v" style="left:759px;"></div>
-                        
-                            <div class="guide-safe-v" style="left:1235px; width:34px;"></div>
-                            <div class="guide-bar-v" style="left:1235px;"></div>
-                        
+                        <div class="guide-safe-v" style="left:255px; width:34px;"></div>
+                        <div class="guide-bar-v" style="left:255px;"></div>
                         <div class="guide-safe-h" style="top:165px; height:28px;"></div>
                         <div class="guide-bar-h" style="top:165px;"></div>
                     </div></div>
@@ -1272,56 +1159,7 @@
                             <!-- Pantalla 1 Izquierda -->
                             <div class="facade-slot facade-slot-left" id="fslot-left">
                                 <div class="facade-inner-scaler" id="fscaler-left" style="width: 504px; height: 336px; transform: scale(0.555556, 0.455357);">
-                                    <div class="live-widget-dom" id="fdom-left" style="width: 504px; height: 336px; --w-c1: #ff9442; --w-c2: #6179b0; --w-text: #ffffff; --w-speed: 15s; --w-angle: -45deg; --w-logo: 68px; --w-l1: 21px; --w-num: 42px; --w-unit: 19px; --w-l4: 17px; --w-l5: 22px; --my: 165px; --mgx: 34px; --mgy: 28px;"><div class="live-screen-unit" style="--mx:237px;"><div class="live-quadrants-grid">
-                <div class="live-glass-pane lp-tl">
-                    <img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="lp-logo">
-                    <h1 class="lp-quedan">Quedan</h1>
-                </div>
-                <div class="live-glass-pane lp-tr">
-                    <div class="lp-stack">
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="days">
-                            <span class="lp-placeholder">21</span>
-                            
-                        <div class="lp-slide">21</div></div>
-                        <span class="lp-unit-label">días,</span>
-                   </div>
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="hours">
-                            <span class="lp-placeholder">12</span>
-                            
-                        <div class="lp-slide">12</div></div>
-                        <span class="lp-unit-label">horas,</span>
-                   </div>
-                    </div>
-                </div>
-                <div class="live-glass-pane lp-bl">
-                    <div class="lp-stack">
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="minutes">
-                            <span class="lp-placeholder">04</span>
-                            
-                        <div class="lp-slide">04</div></div>
-                        <span class="lp-unit-label">minutos</span>
-                   </div>
-                        <div class="lp-unit-group">
-                        <span class="lp-unit-label">y</span>
-                        <div class="lp-num-box" data-live-unit="seconds">
-                            <span class="lp-placeholder">07</span>
-                            
-                        <div class="lp-slide">07</div></div>
-                        <span class="lp-unit-label">segundos</span>
-                   </div>
-                    </div>
-                </div>
-                <div class="live-glass-pane lp-br">
-                    <p class="lp-sub">para saber si Granada será</p>
-                    <p class="lp-high">Capital Europea de la Cultura</p>
-                </div>
-            </div></div></div>
+                                    <div class="live-widget-dom" id="fdom-left" style="width: 504px; height: 336px; --w-c1: #ff9442; --w-c2: #6179b0; --w-text: #ffffff; --w-speed: 15s; --w-angle: -45deg; --w-logo: 108px; --w-l1: 21px; --w-num: 59px; --w-unit: 21px; --w-l4: 15px; --w-l5: 26px; --my: 165px; --mgx: 34px; --mgy: 28px;"><div class="live-screen-unit" style="--mx:237px;"></div></div>
                                 </div>
                                 <div class="facade-glare"></div>
                                 <div class="facade-real-mullion-v" style="left:47%;"></div>
@@ -1331,7 +1169,7 @@
                             <!-- Pantalla 2 Central -->
                             <div class="facade-slot facade-slot-center" id="fslot-center">
                                 <div class="facade-inner-scaler" id="fscaler-center" style="width: 504px; height: 336px; transform: scale(0.52381, 0.452381);">
-                                    <div class="live-widget-dom" id="fdom-center" style="width: 504px; height: 336px; --w-c1: #ff9442; --w-c2: #6179b0; --w-text: #ffffff; --w-speed: 15s; --w-angle: -45deg; --w-logo: 68px; --w-l1: 21px; --w-num: 42px; --w-unit: 19px; --w-l4: 17px; --w-l5: 22px; --my: 165px; --mgx: 34px; --mgy: 28px;"><div class="live-screen-unit" style="--mx:255px;"><div class="live-quadrants-grid">
+                                    <div class="live-widget-dom" id="fdom-center" style="width: 504px; height: 336px; --w-c1: #ff9442; --w-c2: #6179b0; --w-text: #ffffff; --w-speed: 15s; --w-angle: -45deg; --w-logo: 108px; --w-l1: 21px; --w-num: 59px; --w-unit: 21px; --w-l4: 15px; --w-l5: 26px; --my: 165px; --mgx: 34px; --mgy: 28px;"><div class="live-screen-unit" style="--mx:255px;"><div class="live-quadrants-grid">
                 <div class="live-glass-pane lp-tl">
                     <img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="lp-logo">
                     <h1 class="lp-quedan">Quedan</h1>
@@ -1361,17 +1199,17 @@
                         <div class="lp-unit-group">
                         
                         <div class="lp-num-box" data-live-unit="minutes">
-                            <span class="lp-placeholder">04</span>
+                            <span class="lp-placeholder">02</span>
                             
-                        <div class="lp-slide">04</div></div>
+                        <div class="lp-slide">02</div></div>
                         <span class="lp-unit-label">minutos</span>
                    </div>
                         <div class="lp-unit-group">
                         <span class="lp-unit-label">y</span>
                         <div class="lp-num-box" data-live-unit="seconds">
-                            <span class="lp-placeholder">07</span>
+                            <span class="lp-placeholder">01</span>
                             
-                        <div class="lp-slide">07</div></div>
+                        <div class="lp-slide">01</div></div>
                         <span class="lp-unit-label">segundos</span>
                    </div>
                     </div>
@@ -1390,56 +1228,7 @@
                             <!-- Pantalla 3 Derecha -->
                             <div class="facade-slot facade-slot-right" id="fslot-right">
                                 <div class="facade-inner-scaler" id="fscaler-right" style="width: 504px; height: 336px; transform: scale(0.515873, 0.455357);">
-                                    <div class="live-widget-dom" id="fdom-right" style="width: 504px; height: 336px; --w-c1: #ff9442; --w-c2: #6179b0; --w-text: #ffffff; --w-speed: 15s; --w-angle: -45deg; --w-logo: 68px; --w-l1: 21px; --w-num: 42px; --w-unit: 19px; --w-l4: 17px; --w-l5: 22px; --my: 165px; --mgx: 34px; --mgy: 28px;"><div class="live-screen-unit" style="--mx:227px;"><div class="live-quadrants-grid">
-                <div class="live-glass-pane lp-tl">
-                    <img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="lp-logo">
-                    <h1 class="lp-quedan">Quedan</h1>
-                </div>
-                <div class="live-glass-pane lp-tr">
-                    <div class="lp-stack">
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="days">
-                            <span class="lp-placeholder">21</span>
-                            
-                        <div class="lp-slide">21</div></div>
-                        <span class="lp-unit-label">días,</span>
-                   </div>
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="hours">
-                            <span class="lp-placeholder">12</span>
-                            
-                        <div class="lp-slide">12</div></div>
-                        <span class="lp-unit-label">horas,</span>
-                   </div>
-                    </div>
-                </div>
-                <div class="live-glass-pane lp-bl">
-                    <div class="lp-stack">
-                        <div class="lp-unit-group">
-                        
-                        <div class="lp-num-box" data-live-unit="minutes">
-                            <span class="lp-placeholder">04</span>
-                            
-                        <div class="lp-slide">04</div></div>
-                        <span class="lp-unit-label">minutos</span>
-                   </div>
-                        <div class="lp-unit-group">
-                        <span class="lp-unit-label">y</span>
-                        <div class="lp-num-box" data-live-unit="seconds">
-                            <span class="lp-placeholder">07</span>
-                            
-                        <div class="lp-slide">07</div></div>
-                        <span class="lp-unit-label">segundos</span>
-                   </div>
-                    </div>
-                </div>
-                <div class="live-glass-pane lp-br">
-                    <p class="lp-sub">para saber si Granada será</p>
-                    <p class="lp-high">Capital Europea de la Cultura</p>
-                </div>
-            </div></div></div>
+                                    <div class="live-widget-dom" id="fdom-right" style="width: 504px; height: 336px; --w-c1: #ff9442; --w-c2: #6179b0; --w-text: #ffffff; --w-speed: 15s; --w-angle: -45deg; --w-logo: 108px; --w-l1: 21px; --w-num: 59px; --w-unit: 21px; --w-l4: 15px; --w-l5: 26px; --my: 165px; --mgx: 34px; --mgy: 28px;"><div class="live-screen-unit" style="--mx:227px;"></div></div>
                                 </div>
                                 <div class="facade-glare"></div>
                                 <div class="facade-real-mullion-v" style="left:45%;"></div>
@@ -1469,6 +1258,27 @@
 
                     <div class="projects-grid" id="projects-grid-container">
                 <div class="project-card active-project">
+                    <div class="project-color-preview" style="background: linear-gradient(90deg, #ff9442, #6179b0);"></div>
+                    <div style="font-weight:700; font-size:13.5px; color:#fff;">1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)</div>
+                    <div class="project-meta">
+                        <span>🖥️ Modo: 1 Pantalla (504×336px)</span>
+                        <span>⏳ Fecha: 2026-12-03T00:00:00+01:00</span>
+                        <span>🔤 Números: 59px | Logo: 108px</span>
+                    </div>
+                    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
+                        <button class="btn btn-primary" style="padding:5px 10px; font-size:11px;" onclick="loadProfileById('web-1794394671932'); switchView('compare', document.querySelector('.nav-tab'));">
+                            ✏️ Cargar y Retocar
+                        </button>
+                        <button class="btn btn-secondary" style="padding:5px 10px; font-size:11px;" onclick="downloadStandaloneHtmlById('web-1794394671932')">
+                            ⬇️ HTML
+                        </button>
+                        <button class="btn btn-publish" style="padding:5px 10px; font-size:11px;" onclick="selectAndGoPublish('web-1794394671932')">
+                            🚀 Elegir para GitHub
+                        </button>
+                        <button class="btn btn-danger" style="padding:5px 8px; font-size:11px;" onclick="deleteProfileById('web-1794394671932')">🗑️</button>
+                    </div>
+                </div>
+                <div class="project-card ">
                     <div class="project-color-preview" style="background: linear-gradient(90deg, #ff9442, #6179b0);"></div>
                     <div style="font-weight:700; font-size:13.5px; color:#fff;">1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)</div>
                     <div class="project-meta">
@@ -1590,7 +1400,7 @@
                         </div>
                     </div>
                     <div class="code-box">
-                        <pre id="code-iframe-snippet">&lt;iframe src="https://visualxet.github.io/Granada2031/" width="1512" height="336" style="width:1512px; height:336px; border:0; overflow:hidden;" scrolling="no" frameborder="0" title="1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)"&gt;&lt;/iframe&gt;</pre>
+                        <pre id="code-iframe-snippet">&lt;iframe src="https://visualxet.github.io/Granada2031/" width="504" height="336" style="width:504px; height:336px; border:0; overflow:hidden;" scrolling="no" frameborder="0" title="1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)"&gt;&lt;/iframe&gt;</pre>
                     </div>
                 </div>
 
@@ -1601,21 +1411,21 @@
                             <button class="btn btn-secondary" style="padding:4px 10px; font-size:11px;" onclick="copyText('code-index-html')">📋 Copiar HTML</button>
                         </div>
                         <pre id="code-index-html">&lt;!DOCTYPE html&gt;
-&lt;!-- GRANADA2031_CONFIG:{"id":"web-1794394002008","name":"1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)","screenCount":3,"screenWidth":504,"screenHeight":336,"totalWidth":1512,"totalHeight":336,"screenLeftMode":"quadrants-z","screenCenterMode":"quadrants-z","screenRightMode":"quadrants-z","mullionXLeft":237,"mullionX":255,"mullionXRight":227,"mullionY":165,"mullionGapX":34,"mullionGapY":28,"padY":8,"padX":10,"logoSize":68,"line1Size":21,"numberSize":42,"unitSize":19,"line4Size":17,"line5Size":22,"color1":"#ff9442","color2":"#6179b0","textColor":"#ffffff","bgSpeed":15,"bgAngle":-45,"targetDateIso":"2026-12-03T00:00:00+01:00","line1":"Quedan","line4":"para saber si Granada será","line5":"Capital Europea de la Cultura","logoUrl":"https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg"} --&gt;
+&lt;!-- GRANADA2031_CONFIG:{"id":"web-1794394671932","name":"1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)","screenCount":1,"screenWidth":504,"screenHeight":336,"totalWidth":504,"totalHeight":336,"screenLeftMode":"quadrants-z","screenCenterMode":"quadrants-z","screenRightMode":"quadrants-z","mullionXLeft":237,"mullionX":255,"mullionXRight":227,"mullionY":165,"mullionGapX":34,"mullionGapY":28,"padY":8,"padX":10,"logoSize":108,"line1Size":21,"numberSize":59,"unitSize":21,"line4Size":15,"line5Size":26,"color1":"#ff9442","color2":"#6179b0","textColor":"#ffffff","bgSpeed":15,"bgAngle":-45,"targetDateIso":"2026-12-03T00:00:00+01:00","line1":"Quedan","line4":"para saber si Granada será","line5":"Capital Europea de la Cultura","logoUrl":"https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg"} --&gt;
 &lt;html lang="es"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=1512, initial-scale=1.0"&gt;
-    &lt;title&gt;1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)&lt;/title&gt;
+    &lt;meta name="viewport" content="width=504, initial-scale=1.0"&gt;
+    &lt;title&gt;1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)&lt;/title&gt;
     &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
     &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
     &lt;link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800;900&amp;display=swap" rel="stylesheet"&gt;
     &lt;link rel="stylesheet" href="styles.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;main class="countdown-widget" id="widget-root" style="width: 1512px; height: 336px; overflow: hidden;"&gt;
-        &lt;div class="three-screens-stage"&gt;
-            &lt;section class="screen-unit screen-left"&gt;&lt;div class="quadrants-grid"&gt;
+    &lt;main class="countdown-widget" id="widget-root" style="width: 504px; height: 336px; overflow: hidden;"&gt;
+        &lt;div class="screen-unit screen-center"&gt;
+            &lt;div class="quadrants-grid"&gt;
                 &lt;div class="glass-pane pane-tl"&gt;
                     &lt;img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="widget-logo"&gt;
                     &lt;h1 class="line-quedan"&gt;Quedan&lt;/h1&gt;
@@ -1664,107 +1474,7 @@
                     &lt;p class="line-subtitle"&gt;para saber si Granada será&lt;/p&gt;
                     &lt;p class="line-highlight"&gt;Capital Europea de la Cultura&lt;/p&gt;
                 &lt;/div&gt;
-            &lt;/div&gt;&lt;/section&gt;
-            &lt;section class="screen-unit screen-center"&gt;&lt;div class="quadrants-grid"&gt;
-                &lt;div class="glass-pane pane-tl"&gt;
-                    &lt;img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="widget-logo"&gt;
-                    &lt;h1 class="line-quedan"&gt;Quedan&lt;/h1&gt;
-                &lt;/div&gt;
-                &lt;div class="glass-pane pane-tr"&gt;
-                    &lt;div class="pane-stack"&gt;
-                        &lt;div class="time-unit-group"&gt;
-                        
-                        &lt;div class="number-container" data-unit="days"&gt;
-                            &lt;span class="hidden-placeholder"&gt;00&lt;/span&gt;
-                            &lt;div class="number-slide"&gt;00&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;span class="unit-label"&gt;días,&lt;/span&gt;
-                   &lt;/div&gt;
-                        &lt;div class="time-unit-group"&gt;
-                        
-                        &lt;div class="number-container" data-unit="hours"&gt;
-                            &lt;span class="hidden-placeholder"&gt;00&lt;/span&gt;
-                            &lt;div class="number-slide"&gt;00&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;span class="unit-label"&gt;horas,&lt;/span&gt;
-                   &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class="glass-pane pane-bl"&gt;
-                    &lt;div class="pane-stack"&gt;
-                        &lt;div class="time-unit-group"&gt;
-                        
-                        &lt;div class="number-container" data-unit="minutes"&gt;
-                            &lt;span class="hidden-placeholder"&gt;00&lt;/span&gt;
-                            &lt;div class="number-slide"&gt;00&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;span class="unit-label"&gt;minutos&lt;/span&gt;
-                   &lt;/div&gt;
-                        &lt;div class="time-unit-group"&gt;
-                        &lt;span class="unit-label"&gt;y&lt;/span&gt;
-                        &lt;div class="number-container" data-unit="seconds"&gt;
-                            &lt;span class="hidden-placeholder"&gt;00&lt;/span&gt;
-                            &lt;div class="number-slide"&gt;00&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;span class="unit-label"&gt;segundos&lt;/span&gt;
-                   &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class="glass-pane pane-br"&gt;
-                    &lt;p class="line-subtitle"&gt;para saber si Granada será&lt;/p&gt;
-                    &lt;p class="line-highlight"&gt;Capital Europea de la Cultura&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;&lt;/section&gt;
-            &lt;section class="screen-unit screen-right"&gt;&lt;div class="quadrants-grid"&gt;
-                &lt;div class="glass-pane pane-tl"&gt;
-                    &lt;img src="https://narrativas.ideal.es/taigranada26/E-sCCHXJ_400x400.jpg" alt="Logo" class="widget-logo"&gt;
-                    &lt;h1 class="line-quedan"&gt;Quedan&lt;/h1&gt;
-                &lt;/div&gt;
-                &lt;div class="glass-pane pane-tr"&gt;
-                    &lt;div class="pane-stack"&gt;
-                        &lt;div class="time-unit-group"&gt;
-                        
-                        &lt;div class="number-container" data-unit="days"&gt;
-                            &lt;span class="hidden-placeholder"&gt;00&lt;/span&gt;
-                            &lt;div class="number-slide"&gt;00&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;span class="unit-label"&gt;días,&lt;/span&gt;
-                   &lt;/div&gt;
-                        &lt;div class="time-unit-group"&gt;
-                        
-                        &lt;div class="number-container" data-unit="hours"&gt;
-                            &lt;span class="hidden-placeholder"&gt;00&lt;/span&gt;
-                            &lt;div class="number-slide"&gt;00&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;span class="unit-label"&gt;horas,&lt;/span&gt;
-                   &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class="glass-pane pane-bl"&gt;
-                    &lt;div class="pane-stack"&gt;
-                        &lt;div class="time-unit-group"&gt;
-                        
-                        &lt;div class="number-container" data-unit="minutes"&gt;
-                            &lt;span class="hidden-placeholder"&gt;00&lt;/span&gt;
-                            &lt;div class="number-slide"&gt;00&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;span class="unit-label"&gt;minutos&lt;/span&gt;
-                   &lt;/div&gt;
-                        &lt;div class="time-unit-group"&gt;
-                        &lt;span class="unit-label"&gt;y&lt;/span&gt;
-                        &lt;div class="number-container" data-unit="seconds"&gt;
-                            &lt;span class="hidden-placeholder"&gt;00&lt;/span&gt;
-                            &lt;div class="number-slide"&gt;00&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;span class="unit-label"&gt;segundos&lt;/span&gt;
-                   &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class="glass-pane pane-br"&gt;
-                    &lt;p class="line-subtitle"&gt;para saber si Granada será&lt;/p&gt;
-                    &lt;p class="line-highlight"&gt;Capital Europea de la Cultura&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;&lt;/section&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/main&gt;
     &lt;script src="script.js"&gt;&lt;/script&gt;
@@ -1777,12 +1487,12 @@
                             <button class="btn btn-secondary" style="padding:4px 10px; font-size:11px;" onclick="copyText('code-styles-css')">📋 Copiar CSS</button>
                         </div>
                         <pre id="code-styles-css">/* ==========================================================================
-   WEB GENERADA: 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)
-   Resolución Total: 1512x336 px (3 pantalla/s)
+   WEB GENERADA: 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)
+   Resolución Total: 504x336 px (1 pantalla/s)
    ========================================================================== */
 
 :root {
-    --widget-width: 1512px;
+    --widget-width: 504px;
     --widget-height: 336px;
     --screen-width: 504px;
     --screen-height: 336px;
@@ -1803,21 +1513,21 @@
     --bg-speed: 15s;
     --text-color: #ffffff;
 
-    --logo-size: 68px;
-    --logo-radius: 15px;
+    --logo-size: 108px;
+    --logo-radius: 24px;
     --logo-mb: 6px;
 
     --line1-size: 21px;
     --line1-mb: 4px;
 
-    --number-size: 42px;
-    --unit-size: 19px;
+    --number-size: 59px;
+    --unit-size: 21px;
     --group-gap: 10px;
     --item-gap: 4px;
 
-    --line4-size: 17px;
+    --line4-size: 15px;
     --line4-mb: 4px;
-    --line5-size: 22px;
+    --line5-size: 26px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1996,12 +1706,12 @@ html, body {
                             <div class="control-label" style="color:#fff; font-weight:700; font-size:12px;">
                                 🎯 1. Selecciona qué Web quieres publicar como principal (index.html):
                             </div>
-                            <select class="text-input" id="gh-select-web-to-publish" onchange="updateGitHubSelectedWebSummary()" style="font-weight:600; font-size:12.5px; padding:8px;"><option value="__CURRENT__">✨ [Edición Actual en Pantalla] — 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)</option><option value="web-1794394002008">📌 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia) (1512×336px)</option><option value="preset-3p-triptych">📌 1. Fachada 3 con info central — Tríptico Gigante (1512×336px)</option><option value="preset-3p-center">📌 2. Fachada 3 Pantallas (1512×336) — Central Contador + Fondos (1512×336px)</option><option value="preset-1p-504">📌 3. Pantalla Única (504×336) — 4 Cristales en Z Anti-Palillería (504×336px)</option><option value="preset-1p-440">📌 4. Widget Web Estándar (440×310) — Centrado sin Palillería (440×310px)</option></select>
+                            <select class="text-input" id="gh-select-web-to-publish" onchange="updateGitHubSelectedWebSummary()" style="font-weight:600; font-size:12.5px; padding:8px;"><option value="__CURRENT__">✨ [Edición Actual en Pantalla] — 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)</option><option value="web-1794394671932">📌 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia) (504×336px)</option><option value="web-1794394002008">📌 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia) (1512×336px)</option><option value="preset-3p-triptych">📌 1. Fachada 3 con info central — Tríptico Gigante (1512×336px)</option><option value="preset-3p-center">📌 2. Fachada 3 Pantallas (1512×336) — Central Contador + Fondos (1512×336px)</option><option value="preset-1p-504">📌 3. Pantalla Única (504×336) — 4 Cristales en Z Anti-Palillería (504×336px)</option><option value="preset-1p-440">📌 4. Widget Web Estándar (440×310) — Centrado sin Palillería (440×310px)</option></select>
                             <div id="gh-selected-web-summary" style="font-size:11.5px; color:#cbd5e1; background:rgba(9,13,22,0.7); padding:8px 10px; border-radius:6px; font-family:'JetBrains Mono', monospace; line-height:1.5;">
-                <div><strong>Nombre:</strong> 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)</div>
-                <div><strong>Resolución:</strong> 1512 × 336 px (3 Pantallas)</div>
+                <div><strong>Nombre:</strong> 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)</div>
+                <div><strong>Resolución:</strong> 504 × 336 px (1 Pantalla)</div>
                 <div><strong>Fecha Objetivo:</strong> 2026-12-03T00:00:00+01:00</div>
-                <div><strong>Colores:</strong> #ff9442 / #6179b0 | <strong>Números:</strong> 42px</div>
+                <div><strong>Colores:</strong> #ff9442 / #6179b0 | <strong>Números:</strong> 59px</div>
             </div>
                         </div>
 
@@ -2065,7 +1775,7 @@ html, body {
                         <div class="console-log" id="gh-console">
                             <div class="log-info">[Sistema] Estudio Multi-Web inicializado.</div>
                             <div class="log-warn">[Modo Manual] Elige arriba qué web de tu biblioteca quieres publicar y pulsa el botón verde cuando estés listo.</div>
-                        <div class="log-success">[11:42:45] 💾 Web "1. Fachada 3 Pantallas (1512×336) — Tríptico Gigante" guardada en tu biblioteca.</div><div class="log-success">[11:43:32] 💾 Web "1. Fachada 3 con info central — Tríptico Gigante" guardada en tu biblioteca.</div><div class="log-success">[11:46:42] ➕ Nueva web "1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)" añadida a tu biblioteca.</div><div class="log-success">[11:55:15] 💾 Web "1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)" guardada en tu biblioteca.</div><div class="log-info">[11:55:52] === PUBLICANDO WEB ELEGIDA: "1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)" (1512x336px) ===</div><div class="log-info">[11:55:52] Consultando repositorio VisualXet/Granada2031...</div><div class="log-success">[11:55:53] ✅ El repositorio VisualXet/Granada2031 existe (https://github.com/VisualXet/Granada2031).</div></div>
+                        <div class="log-success">[11:42:45] 💾 Web "1. Fachada 3 Pantallas (1512×336) — Tríptico Gigante" guardada en tu biblioteca.</div><div class="log-success">[11:43:32] 💾 Web "1. Fachada 3 con info central — Tríptico Gigante" guardada en tu biblioteca.</div><div class="log-success">[11:46:42] ➕ Nueva web "1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)" añadida a tu biblioteca.</div><div class="log-success">[11:55:15] 💾 Web "1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)" guardada en tu biblioteca.</div><div class="log-info">[11:55:52] === PUBLICANDO WEB ELEGIDA: "1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)" (1512x336px) ===</div><div class="log-info">[11:55:52] Consultando repositorio VisualXet/Granada2031...</div><div class="log-success">[11:55:53] ✅ El repositorio VisualXet/Granada2031 existe (https://github.com/VisualXet/Granada2031).</div><div class="log-success">[11:55:54]   ✔ Subido: index.html</div><div class="log-success">[11:55:55]   ✔ Subido: styles.css</div><div class="log-success">[11:55:57]   ✔ Subido: script.js</div><div class="log-success">[11:55:58]   ✔ Subido: .nojekyll</div><div class="log-success">[11:55:59]   ✔ Subido: webs/1-fachada-3-con-tripe-contador-triptico-gigante-copia.html</div><div class="log-success">[11:56:01]   ✔ Subido: webs/1-fachada-3-con-info-central-triptico-gigante.html</div><div class="log-success">[11:56:02]   ✔ Subido: webs/2-fachada-3-pantallas-1512-336-central-contador-fondos.html</div><div class="log-success">[11:56:04]   ✔ Subido: webs/3-pantalla-unica-504-336-4-cristales-en-z-anti-palilleria.html</div><div class="log-success">[11:56:05]   ✔ Subido: webs/4-widget-web-estandar-440-310-centrado-sin-palilleria.html</div><div class="log-success">[11:56:07]   ✔ Subido: gestor.html</div><div class="log-success">[11:56:07] 🎉 ¡Web "1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)" publicada con éxito en https://visualxet.github.io/Granada2031/!</div><div class="log-success">[11:57:51] ➕ Nueva web "1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)" añadida a tu biblioteca.</div><div class="log-success">[11:57:53] 💾 Web "1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)" guardada en tu biblioteca.</div><div class="log-info">[11:57:58] === PUBLICANDO WEB ELEGIDA: "1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)" (504x336px) ===</div><div class="log-info">[11:57:58] Consultando repositorio VisualXet/Granada2031...</div><div class="log-success">[11:57:59] ✅ El repositorio VisualXet/Granada2031 existe (https://github.com/VisualXet/Granada2031).</div></div>
                     </div>
                 </div>
             </section>
