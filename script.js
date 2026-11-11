@@ -1,5 +1,5 @@
 /**
- * CUENTA ATRÁS GRANADA 2026 / 2031 — 1. Fachada 3 con Tripe contador — Tríptico Gigante (Copia)
+ * CUENTA ATRÁS GRANADA 2026 / 2031 — 1. Fachada 1 con Simple contador — Tríptico Gigante (Copia) (Copia)
  * Fecha objetivo configurada: 2026-12-03T00:00:00+01:00
  */
 
